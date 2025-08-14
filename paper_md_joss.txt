@@ -9,7 +9,7 @@ affiliations:
     index: 1
 date: 2025-08-14
 software_repository: https://github.com/HelabHLC/arbe-lambda
-archive_doi: 10.5281/zenodo.16877146
+archive_doi: 10.5281/zenodo.16877145
 version: v1.0.1
 ---
 
