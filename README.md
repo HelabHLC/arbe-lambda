@@ -1,4 +1,6 @@
 # ARBE λ* Toolkit
+# ARBE λ* Toolkit
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16414719.svg)](https://doi.org/10.5281/zenodo.16414719)
 
 **Spectral colour metric and open toolchain for material-based colour analysis**
 
@@ -93,5 +95,5 @@ For questions, contact Norbert Woiwod via [GitHub Issues](https://github.com/Hel
 ---
 
 **Note:** Screen previews (HEX colours) are symbolic. For QA or production decisions, always rely on Lab/λ\* values and spectral data.
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8475.svg)](https://doi.org/10.5281/zenodo.8475)
+
 
