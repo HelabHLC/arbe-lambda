@@ -1,0 +1,41 @@
+---
+title: 'ARBE λ*: A Spectral Edge-Based Colour Metric and Open Toolchain for Quality Assurance'
+authors:
+  - name: Norbert Woiwod
+    orcid: 0000-0002-1234-5678
+    affiliation: 1
+affiliations:
+  - name: Independent Colour Science Researcher
+    index: 1
+date: 2025-08-14
+software_repository: https://github.com/HelabHLC/arbe-lambda
+archive_doi: 10.5281/zenodo.16877146
+version: v1.0.1
+---
+
+# Summary
+**ARBE λ\*** (*Absorption-Reflection Balance Edge*) is a spectral index that identifies the balance point between absorption and reflection in the visible spectrum. Unlike perceptual colour models such as CIELAB or HLC, λ\* is derived from spectral reflectance data, offering a physically grounded, material-consistent scalar value. This enables more reliable comparisons in quality assurance (QA), pigment formulation, and research contexts.
+
+The toolkit includes a Google Colab/Jupyter notebook (`arbe_lambda.ipynb`) for computing λ\*, visualizing results in CIELAB and HLC, calculating ΔE2000 differences, and generating PDF/CSV reports. It supports CSV, JSON, and CGATS formats, and integrates seamlessly with the HLC Colour Atlas XL dataset.
+
+## Statement of Need
+Traditional colour difference metrics (e.g., CIELAB, ΔE2000) do not capture the underlying spectral balance of materials, limiting their accuracy in QA and production workflows. ARBE λ\* addresses this by providing a reproducible, open, spectrum-derived metric that bridges the gap between physical colour measurements and perceptual models.
+
+## State of the Field
+While CIELAB, HLC, and ΔE formulas are widely used, they are primarily perceptual and device-dependent. ARBE λ\* adds a spectral, device-independent metric to complement these, improving accuracy for physical samples in industrial and research applications.
+
+## Installation
+```bash
+pip install colour-science pandas numpy scipy plotly matplotlib
+```
+Or run directly in Google Colab without installation.
+
+## Usage Example
+Open `arbe_lambda.ipynb` in Colab or Jupyter, load a CSV file with spectral data, run the λ\* computation cell, and visualize results using the included plotting functions.
+
+## Acknowledgements
+This work builds upon the methods and dataset described in the [ARBE λ\* Knowledge Base and Whitepaper](https://doi.org/10.5281/zenodo.16414720) by Norbert Woiwod.
+
+## References
+- Woiwod, N. (2025). *ARBE λ\*: Absorption-Reflection Balance Edge – A Spectral Colour Metric for QA and HLC Integration.* Zenodo. https://doi.org/10.5281/zenodo.16414720
+- Sharma, G., Wu, W., & Dalal, E. N. (2005). The CIEDE2000 color-difference formula: Implementation notes, supplementary test data, and mathematical observations. *Color Research & Application*, 30(1), 21–30
