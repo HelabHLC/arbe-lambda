@@ -1,99 +1,111 @@
-# ARBE λ* Toolkit
-# ARBE λ* Toolkit
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16414719.svg)](https://doi.org/10.5281/zenodo.16414719)
+# ARBE λ* Toolkit  
+**Spectral colour metric and open toolchain for material-based colour analysis**  
 
-**Spectral colour metric and open toolchain for material-based colour analysis**
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16877146.svg)](https://doi.org/10.5281/zenodo.16877146)  
 
 ---
 
-## License
+## What is ARBE λ\*?
 
-This project is licensed under the **MIT License**.
+**ARBE λ\*** (*Absorption–Reflection Balance Edge*) is a spectral index that describes the balance point between absorption and reflection in the visible range for a given material colour sample.  
+It complements CIELAB and HLC colour spaces with a physically grounded scalar λ\* (in nm), computed directly from spectral reflectance data (R(380–730 nm)).  
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+λ\* is defined as the wavelength where:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+\[
+R(λ) = \sqrt{2} - 1 \approx 0.4142
+\]
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+on the **first rising edge** of the reflectance curve.
 
 ---
 
-## About
+## Quick Start — Single Spectrum Demo
 
-**ARBE λ\*** (*Absorption-Reflection Balance Edge*) is a spectral index that describes the balance point between absorption and reflection within the visible spectrum for a given colour sample. It complements existing colour models (CIELAB, HLC) with a physically grounded scalar value λ\* (in nm), derived from reflectance data (R(380–730nm)).
-
-This repository provides a fully open workflow for computing and visualizing ARBE λ\*, including:
-
-- ✅ λ\*-computation from spectral reflectance (CSV, JSON, CGATS)
-- ✅ Colour space visualizations (CIELAB, HLC)
-- ✅ ΔE2000 comparisons between colour groups
-- ✅ PDF/CSV export, spectral plots, and quality assurance (QA) reporting
-- ✅ Colab/Jupyter-ready environment
-
----
-
-## Getting Started
-
-### Option 1: Run in Google Colab
-
-No installation needed:
-
-```text
-[Open in Colab] (coming soon)
-```
-
-### Option 2: Run locally
-
-Install dependencies:
+You can reproduce λ\* calculation from **just one reflectance curve** using the included demo script:
 
 ```bash
-pip install colour-science pandas numpy scipy plotly matplotlib
+# Built-in example spectrum
+python demo_lambda_from_single_spectrum.py
+
+# With your own spectrum CSV (either long: wavelength,R or wide: R380..R730)
+python demo_lambda_from_single_spectrum.py path/to/spectrum.csv
 ```
 
-Open the `arbe_lambda.ipynb` notebook in Jupyter or VS Code.
+Example output:
+
+```
+λ* ≈ 510.0 nm  (R* = √2 − 1 ≈ 0.4142)
+```
+
+This will also plot the reflectance curve, the balance line (R ≈ 0.4142), and the λ\* marker:
+
+![ARBE λ* demo: single-spectrum crossing](docs/img/demo_lambda_star.png)
 
 ---
 
 ## Repository Contents
 
-| File                          | Description                             |
-|------------------------------|-----------------------------------------|
-| `arbe_lambda.ipynb`          | Colab/Jupyter notebook (main workflow)  |
-| `arbe_lambda_full_export.csv`| Spectral colour dataset with λ\*, Lab, HLC, R380–730nm |
-| `paper.md`                   | JOSS manuscript                         |
-| `LICENSE`                    | MIT license                             |
-| `README.md`                  | This file                               |
+| File / Folder                  | Description |
+|--------------------------------|-------------|
+| `arbe_lambda.py`               | Core λ\* computation logic |
+| `demo_lambda_from_single_spectrum.py` | Minimal demo using one reflectance curve |
+| `example_spectrum.csv`         | Example reflectance spectrum (0–1 scale) |
+| `arbe_lambda.ipynb`            | Full Jupyter/Colab workflow (multi-sample support) |
+| `arbe_lambda_full_export.csv`  | Complete dataset (~13,283 HLC colours with λ\*) |
+| `paper.md`                     | JOSS submission manuscript |
+| `LICENSE`                      | License (MIT for code, CC BY-NC 4.0 for data) |
+
+---
+
+## Installation
+
+### Option 1 — Run in Google Colab (no installation)  
+*(link coming soon)*
+
+### Option 2 — Local install
+```bash
+pip install numpy pandas matplotlib scipy plotly
+```
+
+---
+
+## How it works
+
+1. Load R(λ) for 380–730 nm (10 nm steps, % or 0–1).
+2. Find **first rising edge** crossing R ≈ 0.4142.
+3. Use **linear interpolation** if the crossing falls between sample points; otherwise choose nearest λ.
 
 ---
 
 ## Citation
 
-If you use ARBE λ\* in your research, please cite:
+If you use ARBE λ\* in research, please cite:
 
-> Woiwod, N. (2025). *ARBE λ\*: A Spectral Edge-Based Colour Metric and Open Toolchain for Quality Assurance.* [JOSS submission forthcoming]
+> Woiwod, N. (2025). **ARBE λ\***: A Spectral Edge-Based Colour Metric and Open Toolchain for Quality Assurance. *Zenodo*. [https://doi.org/10.5281/zenodo.16877146](https://doi.org/10.5281/zenodo.16877146)  
+
+BibTeX:
+```bibtex
+@article{woiwod2025arbe,
+  title={ARBE λ*: A Spectral Edge-Based Colour Metric and Open Toolchain for Quality Assurance},
+  author={Woiwod, Norbert},
+  year={2025},
+  doi={10.5281/zenodo.16877146},
+  url={https://doi.org/10.5281/zenodo.16877146}
+}
+```
+
+---
+
+## License
+
+- **Code:** MIT License  
+- **Data:** Creative Commons Attribution–NonCommercial 4.0 International (CC BY-NC 4.0)  
 
 ---
 
 ## Contact
 
-For questions, contact Norbert Woiwod via [GitHub Issues](https://github.com/HelabHLC/arbe-lambda/issues).
-
----
-
-**Note:** Screen previews (HEX colours) are symbolic. For QA or production decisions, always rely on Lab/λ\* values and spectral data.
-
+For questions, open a GitHub Issue or contact **Norbert Woiwod**  
+ORCID: [0009-0000-0772-0084](https://orcid.org/0009-0000-0772-0084)  
 
