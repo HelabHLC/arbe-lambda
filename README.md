@@ -75,6 +75,15 @@ Dive into the interactive analysis – here’s your entry point:
 1. Load spectral reflectance R(λ) with 10 nm steps from 380 to 730 nm
 2. Search for the **first rising edge** that crosses `R* ≈ 0.4142`
 3. Interpolate λ\* precisely between two points if needed
+   
+## 🧪 Try ARBE λ* in Google Colab
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/HelabHLC/arbe-lambda/blob/main/arbe_lambda_demo.ipynb)
+
+Run the interactive notebook directly in your browser – no setup needed.
+
+> ℹ️ **Note:** Please upload `arbe_lambda_full_export.csv` manually in Colab if it is not already present in the session.
+
 
 ---
 
@@ -99,11 +108,6 @@ Dive into the interactive analysis – here’s your entry point:
 ### Option 1 — Colab (recommended, no install)
 
 \[→ Colab notebook coming soon]
-## 🧪 Try ARBE λ* in Google Colab
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/HelabHLC/arbe-lambda/blob/main/arbe_lambda_demo.ipynb)
-
-> Note: Please upload `arbe_lambda_full_export.csv` manually if not present.
 
 
 ### Option 2 — Local
