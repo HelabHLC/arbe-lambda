@@ -99,6 +99,12 @@ Dive into the interactive analysis – here’s your entry point:
 ### Option 1 — Colab (recommended, no install)
 
 \[→ Colab notebook coming soon]
+## 🧪 Try ARBE λ* in Google Colab
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/HelabHLC/arbe-lambda/blob/main/arbe_lambda_demo.ipynb)
+
+> Note: Please upload `arbe_lambda_full_export.csv` manually if not present.
+
 
 ### Option 2 — Local
 
