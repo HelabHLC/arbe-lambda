@@ -71,7 +71,13 @@ Plot example:
    
 ## 🧪 Try ARBE λ* in Google Colab
 
+## ​ Try ARBE λ* in Google Colab
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/HelabHLC/arbe-lambda/blob/main/arbe_lambda_demo.ipynb)
+
+Run the interactive notebook directly in your browser – no setup needed.
+
+> Note: Please upload `arbe_lambda_full_export.csv` manually in Colab if it is not already present in the session.
 
 Run the interactive notebook directly in your browser – no setup needed.
 
