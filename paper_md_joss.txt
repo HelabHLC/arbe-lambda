@@ -15,7 +15,7 @@ version: v1.0.1
 # Summary
 **ARBE λ\*** (*Absorption-Reflection Balance Edge*) is a spectral index that identifies the balance point between absorption and reflection in the visible spectrum. Unlike perceptual colour models such as CIELAB or HLC, λ\* is derived from spectral reflectance data, offering a physically grounded, material-consistent scalar value. This enables more reliable comparisons in quality assurance (QA), pigment formulation, and research contexts.
 
-The toolkit includes a Google Colab/Jupyter notebook (`arbe_lambda.ipynb`) for computing λ\*, visualizing results in CIELAB and HLC, calculating ΔE2000 differences, and generating PDF/CSV reports. It supports CSV, JSON, and CGATS formats, and integrates seamlessly with the HLC Colour Atlas XL dataset.
+The toolkit includes a Google Colab/Jupyter notebook (`arbe_lambda_demo.ipynb`) for computing λ\*, visualizing results in CIELAB and HLC, calculating ΔE2000 differences, and generating PDF/CSV reports. It supports CSV, JSON, and CGATS formats, and integrates seamlessly with the HLC Colour Atlas XL dataset.
 
 ## Statement of Need
 Traditional colour difference metrics (e.g., CIELAB, ΔE2000) do not capture the underlying spectral balance of materials, limiting their accuracy in QA and production workflows. ARBE λ\* addresses this by providing a reproducible, open, spectrum-derived metric that bridges the gap between physical colour measurements and perceptual models.
@@ -30,7 +30,7 @@ pip install colour-science pandas numpy scipy plotly matplotlib
 Or run directly in Google Colab without installation.
 
 ## Usage Example
-Open `arbe_lambda.ipynb` in Colab or Jupyter, load a CSV file with spectral data, run the λ\* computation cell, and visualize results using the included plotting functions.
+Open `arbe_lambda_demo.ipynb` in Google Colab or Jupyter to interactively load spectral datasets, compute λ\* for thousands of samples, and visualize results using histograms, filters, and CIELAB scatter plots. The notebook includes a fallback for manual CSV upload and demonstrates all major features of the ARBE λ\* toolkit.
 
 ## Acknowledgements
 This work builds upon the methods and dataset described in the [ARBE λ\* Knowledge Base and Whitepaper](https://doi.org/10.5281/zenodo.16414720) by Norbert Woiwod.
