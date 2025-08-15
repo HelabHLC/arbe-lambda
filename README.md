@@ -61,6 +61,7 @@ Plot example:
 ![ARBE λ* demo: single-spectrum crossing](demo_lambda_star.png)
 
 
+
 ---
 
 ## ⚙️ How It Works
