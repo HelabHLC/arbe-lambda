@@ -58,7 +58,8 @@ Output:
 
 Plot example:
 
-![ARBE λ\* demo: single-spectrum crossing](docs/img/demo_lambda_star.png)
+![ARBE λ* demo: single-spectrum crossing](docs/img/demo_lambda_star.png)
+
 
 ---
 
