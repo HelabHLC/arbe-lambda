@@ -58,14 +58,7 @@ Output:
 
 Plot example:
 
-![ARBE λ* demo: single-spectrum crossing](demo_lambda_star.png)##  Try ARBE λ* in Google Colab
-
-Dive into the interactive analysis – here’s your entry point:
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/HelabHLC/arbe-lambda/blob/main/arbe_lambda_colab_demo.ipynb)
-
-**Note:** Please upload `arbe_lambda_full_export.csv` in the Colab session if it’s not present in the workspace.
-
+![ARBE λ* demo: single-spectrum crossing](demo_lambda_star.png)##  
 
 
 ---
