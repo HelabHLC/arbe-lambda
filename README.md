@@ -69,11 +69,9 @@ Plot example:
 2. Search for the **first rising edge** that crosses `R* ≈ 0.4142`
 3. Interpolate λ\* precisely between two points if needed
    
-## 🧪 Try ARBE λ* in Google Colab
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/HelabHLC/arbe-lambda/blob/main/arbe_lambda_colab_demo_clean.ipynb)
 
-## ​ Try ARBE λ* in Google Colab
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/HelabHLC/arbe-lambda/blob/main/arbe_lambda_demo.ipynb)
 
 Run the interactive notebook directly in your browser – no setup needed.
 
