@@ -81,8 +81,8 @@ Run the interactive notebook directly in your browser – no setup needed.
 
 > ℹ️ **Note:** Please upload `arbe_lambda_full_export.csv` manually in Colab if it is not already present in the session.
 
-🤖 Need help understanding ARBE λ*?
-Try our AI Assistant on ChatGPT
+🤖 **Need help understanding ARBE λ\*?**  
+Try our [AI Assistant on ChatGPT](https://chatgpt.com/g/g-6882e23ee3e881918f5f27140c66f28b-arbe-l-index)
 ---
 
 ## 📂 Repository Contents
