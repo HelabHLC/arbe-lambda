@@ -134,4 +134,6 @@ Zenodo. [https://doi.org/10.5281/zenodo.16877146](https://doi.org/10.5281/zenodo
 Maintainer: **Norbert Woiwod**
 ORCID: [0009-0000-0772-0084](https://orcid.org/0009-0000-0772-0084)
 GitHub Issues: [github.com/HelabHLC/arbe-lambda/issues](https://github.com/HelabHLC/arbe-lambda/issues)
+**GitHub Repository:** [HelabHLC/arbe-lambda](https://github.com/HelabHLC/arbe-lambda)
+
 
