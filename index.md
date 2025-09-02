@@ -40,8 +40,9 @@ Prompt:
 GENRE: Product Design. Clustere Kandidaten aus HLC Atlas nach ARBE λ* (Schwelle 0,4142) und wähle 7 harmonische Farben. JSON hlc-connect.playbook.v1.
 ```
 
-See full schema: [`hlc_connect_playbook_36_x_100_template.json`](hlc_connect_playbook_36_x_100_template.json)
-
+See full schema: [[`hlc_connect_playbook_36_x_100_template.json`](hlc_connect_playbook_36_x_100_template.json)
+](https://helabhlc.github.io/arbe-lambda/playbook/hlc_connect_playbook.json
+)
 ---
 
 ## 🧪 Quickstart (Colab)
