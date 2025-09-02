@@ -1,0 +1,151 @@
+{
+  "schema": "hlc-connect.playbook.v1",
+  "type": "playbook-template",
+  "meta": {
+    "name": "HLC Connect – Lambda Star Playbook (36 Genres × 100)",
+    "version": "1.0.0",
+    "created": "2025-08-20",
+    "generator": "HLC Connect Pro · Template-Expansion",
+    "notes": "Kompakter Vorlagen-Dump. HLC Connect Pro expandiert dies beim Import zu 3.600 flachen Prompts (36 Genres × 10 Intents × 10 Variationen)."
+  },
+  "variables_default": {
+    "HLC": "{H=…, L=…, C=…}",
+    "Lab": "{L*…, a*…, b*…}",
+    "RGB": "{R,G,B}",
+    "HEX": "{#RRGGBB}",
+    "ARBE": "{λ*≈… nm}",
+    "DeltaE00": "≤2.0",
+    "Count": "7",
+    "PaletteName": "{Palettenname}",
+    "CxF": "{pfad/zum/spektrum.cxf}",
+    "Profile": "{PSO Coated v3}",
+    "Gamut": "{sRGB|P3|CMYK…}",
+    "Scene": "{Kurzbeschreibung des Motivs/Kontexts}",
+    "Tone": "{warm|neutral|kühl}",
+    "Schema": "hlc-connect.playbook.v1"
+  },
+  "genres": [
+    "Branding & Corporate Design",
+    "UI/UX & App Design",
+    "Webdesign & Landingpages",
+    "Editorial & Magazin",
+    "Verpackung & FMCG",
+    "Infografik & Data Visualization",
+    "Kartografie",
+    "Illustration (2D)",
+    "Digitale Malerei",
+    "3D/CGI & Material",
+    "Produktdesign",
+    "Automotive – Exterieur",
+    "Automotive – Interieur",
+    "Architektur – Außen",
+    "Architektur – Innen",
+    "Innenarchitektur & Moodboards",
+    "Lichtdesign",
+    "Fotografie & Retusche",
+    "Film/Video – Color Grading",
+    "Werbung & Social Media",
+    "E‑Commerce Listings",
+    "Mode/Textil – Druck",
+    "Mode/Textil – Färberei",
+    "Kosmetik & Make‑up",
+    "Keramik & Glasuren",
+    "Lacke & Beschichtungen",
+    "Druckvorstufe / Prepress",
+    "Barrierefreiheit & Kontrast",
+    "Wissenschaftliche Visualisierung",
+    "Medizinische Bildgebung/Mapping",
+    "Geologie & Fernerkundung",
+    "Umwelt & Nachhaltigkeitssignage",
+    "Wayfinding / Leitsysteme",
+    "Messe & Exhibit Design",
+    "Spiele / VR / AR",
+    "Iconografie & System UI"
+  ],
+  "base_intents": [
+    {
+      "key": "match_hlc",
+      "title": "HLC-Zielfarbe farbmetrisch matchen",
+      "template": "GENRE: {GENRE}. Erzeuge eine Palette aus {Count} Farben basierend auf Ziel-HLC {HLC} (Lab {Lab}, HEX {HEX}, RGB {RGB}). Nutze Spektraldaten {CxF} (380–730 nm). Optimiere ΔE00 ≤ {DeltaE00}. Begründe die Auswahl. Gib JSON nach {Schema} zurück.",
+      "tags": ["palette", "deltae", "spectral", "hlc", "lab", "arbe"]
+    },
+    {
+      "key": "gamut_mapping",
+      "title": "Gamut-Mapping zu Zielprofil",
+      "template": "GENRE: {GENRE}. Mappe eine vorhandene Palette ({Count} Farben) auf {Profile} ({Gamut}). Behalte Hue so gut wie möglich, justiere L* für Kontrast. Bericht: Verschiebungen in ΔE00 und Chroma-Clamps. JSON {Schema}.",
+      "tags": ["gamut", "icc", "report", "hlc", "lab"]
+    },
+    {
+      "key": "arbe_cluster",
+      "title": "ARBE λ* – spektrale Harmonie",
+      "template": "GENRE: {GENRE}. Clustere Kandidaten aus HLC Atlas nach ARBE λ* (Schwelle 0,4142) und wähle {Count} harmonische Farben (ähnliche Schnittwellenlängen). Liefere Liste + kurze Begründung je Farbe. JSON {Schema}.",
+      "tags": ["arbe", "spectral", "harmony", "hlc"]
+    },
+    {
+      "key": "wcag_contrast",
+      "title": "WCAG-Kontrast & Ersatzfarben",
+      "template": "GENRE: {GENRE}. Prüfe Text-auf-Fläche-Kombinationen aus {Count} Farben gegen WCAG 2.2. Liefere für Paare unter AAA eine visuell möglichst ähnliche Ersatzfarbe (ΔE00 minimal) aus HLC. Berichte Kontrastwerte. JSON {Schema}.",
+      "tags": ["wcag", "contrast", "accessibility", "hlc", "lab"]
+    },
+    {
+      "key": "temp_mood",
+      "title": "Farbtemperatur & Stimmung",
+      "template": "GENRE: {GENRE}. Stelle eine {Tone}-Stimmungspalette ({Count} Farben) zusammen. Steuere Wärme/Kühle über a*/b*-Verlauf, halte L*-Abstände konstant. Füge kurze Mood-Labels hinzu. JSON {Schema}.",
+      "tags": ["mood", "lightness", "ab-slope", "hlc", "lab"]
+    },
+    {
+      "key": "naming",
+      "title": "Farbnamensgebung + Notation",
+      "template": "GENRE: {GENRE}. Vergib sprechende Namen für {Count} HLC-Farben (Basis {HLC}). Enthalten: Name, HLC, Lab, HEX, ARBE λ*, assoziatives Stichwort. Regeln dokumentieren. JSON {Schema}.",
+      "tags": ["naming", "metadata", "hlc", "lab", "arbe"]
+    },
+    {
+      "key": "ramps",
+      "title": "Rampen & Gradienten (L*-konstant)",
+      "template": "GENRE: {GENRE}. Baue {Count} Farbverläufe (je 5–7 Stufen) mit nahezu konstanter L* und definiertem Hue-Sweep um {HLC}. Nutze spektrale Hinweise (ARBE λ*) für natürliche Übergänge. JSON {Schema}.",
+      "tags": ["ramps", "gradients", "lightness", "arbe", "hlc"]
+    },
+    {
+      "key": "dedupe",
+      "title": "Duplikat-/Konfliktprüfung",
+      "template": "GENRE: {GENRE}. Prüfe eine Palette ({Count} Farben) auf nahezu identische Einträge (ΔE00 < 0,8) und Konflikte (WCAG < AAA). Schlage Ersetzungen vor (aus HLC) inkl. Begründung. JSON {Schema}.",
+      "tags": ["quality", "deltae", "wcag", "hlc", "lab"]
+    },
+    {
+      "key": "x_material",
+      "title": "Screen→Print→Textil Übersetzung",
+      "template": "GENRE: {GENRE}. Übersetze {Count} Ziel-Farben von sRGB/Display P3 nach CMYK ({Profile}) und Lab-Textilziel. Liefere Soft-Proof-Bewertung (ΔE00) + Alternativen. JSON {Schema}.",
+      "tags": ["x-material", "icc", "cmyk", "hlc", "lab"]
+    },
+    {
+      "key": "prompt_to_palette",
+      "title": "Text→Palette (Prompt-Parsing)",
+      "template": "GENRE: {GENRE}. Analysiere den Text: {Scene}. Leite Schlagworte ab und wähle {Count} HLC-Farben (mit {ARBE}-Hinweis). Liefere Begründungen + JSON {Schema}.",
+      "tags": ["nlp", "palette", "context", "hlc", "arbe"]
+    }
+  ],
+  "variations": [
+    { "key": "v1",  "title": "D50/2° · Perzeptiv · PSO Coated v3",   "settings": "Illuminant D50 · 2°-Beobachter · Rendering Intent: Perzeptiv · Gamut: PSO Coated v3." },
+    { "key": "v2",  "title": "D65/10° · Relativ · sRGB",            "settings": "Illuminant D65 · 10°-Beobachter · Relativ farbmetrisch · Gamut: sRGB." },
+    { "key": "v3",  "title": "D55/2° · Absolut · Adobe RGB",       "settings": "Illuminant D55 · 2°-Beobachter · Absolut farbmetrisch · Gamut: Adobe RGB (1998)." },
+    { "key": "v4",  "title": "D65/2° · Perzeptiv · Display P3",     "settings": "Illuminant D65 · 2°-Beobachter · Perzeptiv · Gamut: Display P3." },
+    { "key": "v5",  "title": "A/10° · Relativ · PSO Uncoated v3",   "settings": "Illuminant A · 10°-Beobachter · Relativ farbmetrisch · Gamut: PSO Uncoated v3." },
+    { "key": "v6",  "title": "F2/2° · Perzeptiv · ISO Coated v2",   "settings": "Illuminant F2 · 2°-Beobachter · Perzeptiv · Gamut: ISO Coated v2 (ECI)." },
+    { "key": "v7",  "title": "F7/2° · Relativ · Rec.709",           "settings": "Illuminant F7 · 2°-Beobachter · Relativ farbmetrisch · Gamut: Rec.709." },
+    { "key": "v8",  "title": "E/2° · Absolut · Rec.2020",           "settings": "Illuminant E · 2°-Beobachter · Absolut farbmetrisch · Gamut: Rec.2020 (Soft-Proof)." },
+    { "key": "v9",  "title": "D50/2° · Perzeptiv · Custom ICC",     "settings": "Illuminant D50 · 2°-Beobachter · Perzeptiv · Gamut: benutzerdefiniertes ICC-Profil (Upload)." },
+    { "key": "v10", "title": "D65/10° · Relativ · CMYK DeviceLink", "settings": "Illuminant D65 · 10°-Beobachter · Relativ farbmetrisch · Gamut: CMYK (DeviceLink)." }
+  ],
+  "expansion": {
+    "mode": "cartesian",
+    "id_format": "{genre_slug}__{intent_key}__{variation_key}",
+    "title_format": "{genre} · {intent_title} [{variation_title}]",
+    "prompt_suffix": "\n\nEinstellungen: {variation_settings}\n\nAusgabe: JSON mit Feldern [title, genre, steps[], colors[], constraints, report]. Schema: {Schema}.",
+    "slug_rules": {
+      "lowercase": true,
+      "separator": "-",
+      "strip": "[^a-z0-9]+",
+      "trim": true
+    }
+  }
+}
