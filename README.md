@@ -19,13 +19,13 @@ Der **ARBE λ* Index** beschreibt den **Absorptions-Reflexions-Balancepunkt** ei
 ## Zitation
 
 Kurz (Deutsch):  
-Woiwod, N. (2025). ARBE λ* v2.0: Präzise spektrale Berechnung für Farbanalyse. Zenodo. DOI: 10.5281/zenodo.xxxxxx  
+Woiwod, N. (2025). ARBE λ* v2.0: Präzise spektrale Berechnung für Farbanalyse. Zenodo. DOI: 10.5281/[zenodo.17038866
 
 Short (English):  
-Woiwod, N. (2025). ARBE λ* v2.0: Precise spectral computation for color analysis. Zenodo. DOI: 10.5281/zenodo.xxxxxx  
+Woiwod, N. (2025). ARBE λ* v2.0: Precise spectral computation for color analysis. Zenodo. DOI: 10.5281/zenodo.17038866  
 
 APA-7:  
-Woiwod, N., & freieFarbe e.V. (2025). ARBE λ* v2.0: Präzise spektrale Berechnung für Farbanalyse (Version 2.0) [Whitepaper]. Zenodo. https://doi.org/10.5281/zenodo.xxxxxx  
+Woiwod, N., & freieFarbe e.V. (2025). ARBE λ* v2.0: Präzise spektrale Berechnung für Farbanalyse (Version 2.0) [Whitepaper]. Zenodo. https://doi.org/10.5281/zenodo.17038866
 
 BibTeX:  
 @misc{woiwod_arbe_lambda_v2_2025,  
@@ -34,7 +34,7 @@ BibTeX:
   year         = {2025},  
   month        = {September},  
   day          = {4},  
-  doi          = {10.5281/zenodo.xxxxxx},  
+  doi          = {10.5281/zenodo.17038866},  
   url          = [https://doi.org/10.5281/zenodo.17038866   ](https://zenodo.org/records/17038866)
   publisher    = {Zenodo},  ](https://doi.org/10.5281/zenodo.17038866)
   version      = {v2.0},  
