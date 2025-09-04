@@ -1,22 +1,4 @@
-# ARBE λ* – Whitepaper v2.0 (2025)
-
-Dieses Repository enthält die wissenschaftliche Veröffentlichung zum  
-**ARBE λ* v2.0 – Präzise Spektralberechnung**.
-
-## Hintergrund
-
-Der **ARBE λ* Index** beschreibt den **Absorptions-Reflexions-Balancepunkt** einer Farbe und bietet eine robuste spektralbasierte Kennzeichnung im sichtbaren Bereich.
-
-- ARBE λ* v1.0 (2025-07-24): Näherungsverfahren (diskrete Integration, heuristische Nullstellensuche)  
-- ARBE λ* v2.0 (ab 2025-09-04): Präzisionsverfahren (Brent-Verfahren + 1-nm-Interpolation + Trapezregel)  
-
-## Ergebnisse (HLC-Atlas, 13 283 Farben)
-
-- Mittelwert: 569 nm (gelbgrüner Bereich)  
-- Standardabweichung: ±49 nm (Verteilung von Blau bis Rot)  
-- Valide Werte: 100 % der Farben  
-
-## Zitation
+# Zitationen für ARBE λ* v2.0 (2025)
 
 Kurz (Deutsch):  
 Woiwod, N. (2025). ARBE λ* v2.0: Präzise spektrale Berechnung für Farbanalyse. Zenodo. DOI: 10.5281/zenodo.xxxxxx  
@@ -40,7 +22,3 @@ BibTeX:
   version      = {v2.0},  
   note         = {Whitepaper veröffentlicht am 4. September 2025}  
 }  
-
-## Lizenz
-
-Dieses Repository steht unter **CC BY 4.0 International**.
