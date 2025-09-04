@@ -35,8 +35,8 @@ BibTeX:
   month        = {September},  
   day          = {4},  
   doi          = {10.5281/zenodo.xxxxxx},  
-  url          = {https://doi.org/10.5281/zenodo.xxxxxx},  
-  publisher    = {Zenodo},  
+  url          = [https://doi.org/10.5281/zenodo.17038866   ](https://zenodo.org/records/17038866)
+  publisher    = {Zenodo},  ](https://doi.org/10.5281/zenodo.17038866)
   version      = {v2.0},  
   note         = {Whitepaper veröffentlicht am 4. September 2025}  
 }  
