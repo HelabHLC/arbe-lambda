@@ -44,3 +44,14 @@ BibTeX:
 ## Lizenz
 
 Dieses Repository steht unter **CC BY 4.0 International**.
+---
+
+## 📘 Getting Started Guide
+
+If you want to run the **ARBE λ* v3 Equal-Energy Pipeline**  
+directly in GitHub, follow the step-by-step setup here:
+
+👉 [**Open the GitHub Getting Started Guide →**](docs/GETTING_STARTED_GitHub_arbe_lambda_v3.md)
+
+---
+
