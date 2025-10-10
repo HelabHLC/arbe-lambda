@@ -20,11 +20,13 @@ jobs:
 
       - name: Verify gh
         run: gh --version
-        env: { GH_TOKEN: ${{ github.token }} }
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       # PR 1 — Housekeeping
       - name: PR1 – Housekeeping (Ordner, Moves, .gitignore)
-        env: { GH_TOKEN: ${{ github.token }} }
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           git fetch origin main
@@ -74,7 +76,8 @@ jobs:
 
       # PR 2 — CI
       - name: PR2 – CI (v2 validate & bundle workflow)
-        env: { GH_TOKEN: ${{ github.token }} }
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           git fetch origin main
@@ -141,7 +144,8 @@ jobs:
 
       # PR 3 — v3 Skeleton + README + DOI
       - name: PR3 – v3 Skeleton (UV+Vis 300–730, EE) + README/DOI
-        env: { GH_TOKEN: ${{ github.token }} }
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           git fetch origin main
