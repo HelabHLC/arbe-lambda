@@ -28,6 +28,7 @@ Full whitepaper: [https://doi.org/10.5281/zenodo.16414720](https://doi.org/10.52
 | `hlc_connect_playbook_36_x_100_template.json` | Prompt playbook for 36 design genres × 10 actions |
 | `prompt_generator_knowledgebase.md` | Documentation of the ARBE λ* prompt generator |
 | `liesmich_v1-2.txt` | License and background for HLC Colour Atlas XL (CC-BY-ND 4.0) |
+| `docs/grid-atlas.html` | Interaktive Grid-Ansicht des kompletten HLC Atlas mit λ*-Filtern |
 
 ---
 
@@ -61,6 +62,7 @@ See full schema: https://helabhlc.github.io/arbe-lambda/playbook/hlc_connect_pla
 - 🌐 Web/app colors with physical consistency
 - ♿ Accessibility & WCAG replacement mapping
 - 🔬 Scientific visualization & material R&D
+- 🗂️ Grid Atlas für schnelle Farbbrowse-Erlebnisse – inspiriert von Pantone Connect
 
 ---
 
@@ -94,3 +96,5 @@ Let’s bring physically grounded color communication to every screen, print, an
 
 **Next step?**
 > Fork this repo • Open the Notebook • Try your first ARBE λ* color!
+
+👉 **Neu:** Öffne [`docs/grid-atlas.html`](docs/grid-atlas.html) lokal oder via GitHub Pages und blättere durch 13 283 HLC-Farben in einer modernen Grid-Oberfläche mit λ*-Filtern.
