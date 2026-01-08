@@ -173,11 +173,17 @@ See also: [`docs/CITATION.cff`](docs/CITATION.cff)
 
 ---
 
-## ⚖️ License
+## ⚖️ Licensing
 
-- **Code:** MIT / BSD-3-Clause  
-- **Data:** CC BY 4.0  
-- **DOI:** [10.5281/zenodo.17038866](https://doi.org/10.5281/zenodo.17038866)
+- **Code (software, scripts, tools):** Apache License 2.0  
+  (includes an explicit patent grant)
+
+- **Data, documentation, and conceptual content  
+  (including ARBE λ*, Δλ*, models, datasets, and descriptions):**  
+  Creative Commons Attribution–ShareAlike 4.0 (CC BY-SA 4.0)
+
+- **DOI (defensive publication / prior art):**  
+  https://doi.org/10.5281/zenodo.17038866
 
 ---
 
