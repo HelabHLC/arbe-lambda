@@ -1,6 +1,61 @@
 # 🌈 ARBE λ* v3.0 – Equal-Energy (UV + Vis, 300–730 nm)
 ### Physically grounded spectral balance wavelength analysis  
 **Developed by HelabHLC / freieFarbe e.V.**
+## 🛡️ Open Science & Patent Defense  
+## 🛡️ Offene Wissenschaft & Patentschutz (Defensive Publication)
+
+**EN**
+
+This repository, its definitions, and computational approaches —
+including but not limited to the ARBE λ* (“Absorption–Reflection Balance Edge”)
+framework — are published as **defensive disclosure and prior art**, in
+alignment with the FreieFarbe mission of open, transparent colour science.
+
+The purpose of this publication is to prevent exclusive appropriation
+through patents or similar instruments. It is not intended to claim
+proprietary rights or normative control over concepts, but to ensure
+that foundational knowledge remains open and reusable.
+
+ARBE λ* is presented here as a **scientific descriptor** and reference
+implementation for research, education, and reproducible analysis. It
+is independent of specific devices, numerical solvers, parameter choices,
+or commercial systems.
+
+No operational thresholds, acceptance criteria, or device-specific
+decision rules are asserted or implied in this work.
+
+For applied, industrial, or normative use beyond this open framework,
+independent validation and domain-specific expertise are required.
+
+---
+
+**DE**
+
+Dieses Repository, seine Definitionen und rechnerischen Ansätze —
+einschließlich, aber nicht beschränkt auf das ARBE λ*
+(*Absorptions–Reflexions-Balancepunkt*)-Konzept — werden als
+**defensive Veröffentlichung und Stand der Technik (Prior Art)**
+im Sinne der FreieFarbe-Mission einer offenen und transparenten
+Farbforschung publiziert.
+
+Ziel dieser Veröffentlichung ist es, eine exklusive Aneignung durch
+Patente oder vergleichbare Schutzinstrumente zu verhindern. Es werden
+keine proprietären Rechte oder normativen Ansprüche erhoben, sondern
+grundlegende Erkenntnisse bewusst offen zugänglich gemacht.
+
+ARBE λ* wird hier als **wissenschaftlicher Deskriptor** und
+Referenz-Implementierung für Forschung, Lehre und reproduzierbare
+Analysen vorgestellt. Das Konzept ist unabhängig von konkreten
+Geräten, numerischen Verfahren, Parametrisierungen oder
+kommerziellen Systemen.
+
+Es werden ausdrücklich keine operativen Schwellenwerte,
+Akzeptanzkriterien oder gerätespezifischen Entscheidungsregeln
+festgelegt oder impliziert.
+
+Eine angewandte, industrielle oder normative Nutzung über diesen
+offenen Rahmen hinaus erfordert eine eigenständige Validierung
+sowie kontextspezifische Fachkompetenz.
 
 ---
 
