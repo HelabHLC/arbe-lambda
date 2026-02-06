@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>ARBE λ* Grid Atlas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0b0e;
+      --panel: #15151b;
+      --panel-border: rgba(255, 255, 255, 0.08);
+      --text: #f5f5f7;
+      --muted: rgba(245, 245, 247, 0.65);
+      --accent: #7c8cff;
+      --chip-size: 150px;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top left, rgba(124, 140, 255, 0.16), transparent 40%),
+                  radial-gradient(circle at bottom right, rgba(85, 226, 211, 0.12), transparent 45%),
+                  var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      backdrop-filter: blur(18px);
+      background: rgba(11, 11, 14, 0.78);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 1.75rem clamp(1.5rem, 3vw, 3rem);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.65rem, 3vw, 2.4rem);
+      letter-spacing: -0.02em;
+      font-weight: 650;
+    }
+
+    header p {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+      max-width: 720px;
+      line-height: 1.5;
+    }
+
+    .controls {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      padding: 1.5rem clamp(1.5rem, 3vw, 3rem) 0;
+    }
+
+    .control-block {
+      background: rgba(19, 19, 26, 0.72);
+      border: 1px solid var(--panel-border);
+      padding: 1rem 1.25rem;
+      border-radius: 16px;
+    }
+
+    .control-block label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .control-block input[type="search"],
+    .control-block select,
+    .control-block input[type="number"] {
+      width: 100%;
+      padding: 0.65rem 0.8rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(12, 12, 18, 0.9);
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .control-row {
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .range-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .range-group input[type="number"] {
+      width: 100%;
+    }
+
+    main {
+      padding: clamp(1.5rem, 3vw, 3rem);
+      padding-top: 0;
+    }
+
+    .summary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      color: var(--muted);
+      padding: 0 clamp(0rem, 2vw, 1rem) 1rem;
+      font-size: 0.95rem;
+    }
+
+    .summary strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .swatch {
+      background: rgba(14, 14, 18, 0.86);
+      border: 1px solid var(--panel-border);
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 45px rgba(9, 11, 18, 0.35);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .swatch:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 30px 60px rgba(14, 18, 30, 0.45);
+    }
+
+    .swatch-chip {
+      position: relative;
+      height: var(--chip-size);
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .chip-overlay {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    }
+
+    .swatch-body {
+      padding: 1rem 1.15rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .swatch-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      font-size: 1rem;
+    }
+
+    .tag {
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .swatch-meta {
+      display: grid;
+      gap: 0.35rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .swatch-meta span {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    footer {
+      padding: 2rem clamp(1.5rem, 3vw, 3rem) 3rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 680px) {
+      :root {
+        --chip-size: 120px;
+      }
+      .grid {
+        gap: 1rem;
+      }
+      .controls {
+        grid-template-columns: 1fr;
+      }
+      .control-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ARBE λ* Grid Atlas</h1>
+    <p>
+      Entdecke den vollständigen HLC Colour Atlas XL in einer modernen Grid-Ansicht – inspiriert von Pantone Connect,
+      aber gespeist mit physikalischen λ*-Daten. Filtere nach Spektrum, Lichtheit und Hue-Steps, um passende Farben für
+      digitale wie analoge Projekte zu finden.
+    </p>
+  </header>
+
+  <section class="controls" aria-label="Filter">
+    <div class="control-block">
+      <label for="search">Suche <span id="search-count"></span></label>
+      <input type="search" id="search" placeholder="Name, HEX oder λ*" autocomplete="off">
+    </div>
+    <div class="control-block">
+      <label for="sort">Sortierung</label>
+      <select id="sort">
+        <option value="hue">Hue → Lightness</option>
+        <option value="lambda">λ* (nm) aufsteigend</option>
+        <option value="lightness">L* aufsteigend</option>
+        <option value="chroma">Chroma-Step aufsteigend</option>
+      </select>
+    </div>
+    <div class="control-block">
+      <label>λ*-Bereich (nm)</label>
+      <div class="control-row">
+        <input type="number" id="lambda-min" value="380" min="380" max="730">
+        <input type="number" id="lambda-max" value="730" min="380" max="730">
+      </div>
+    </div>
+    <div class="control-block">
+      <label>L*-Bereich</label>
+      <div class="control-row">
+        <input type="number" id="light-min" value="0" min="0" max="100">
+        <input type="number" id="light-max" value="100" min="0" max="100">
+      </div>
+    </div>
+    <div class="control-block">
+      <label>Hue-Step Auswahl</label>
+      <div class="control-row">
+        <input type="number" id="hue-min" value="0" min="0" max="360">
+        <input type="number" id="hue-max" value="360" min="0" max="360">
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="summary" id="summary">
+      <strong>Lade Daten …</strong>
+    </div>
+    <div class="grid" id="atlas" aria-live="polite"></div>
+  </main>
+
+  <footer>
+    Datenbasis: HLC Colour Atlas XL (CC-BY-ND 4.0). λ*-Berechnung via ARBE λ* v2.0. Grid Atlas erstellt für schnelle visuelle
+    Exploration und Spektral-Checks in Design-Workflows.
+  </footer>
+
+  <script>
+    const state = {
+      data: [],
+      filtered: [],
+      search: '',
+      sort: 'hue',
+      lambda: [380, 730],
+      lightness: [0, 100],
+      hue: [0, 360],
+    };
+
+    const elements = {
+      search: document.getElementById('search'),
+      sort: document.getElementById('sort'),
+      lambdaMin: document.getElementById('lambda-min'),
+      lambdaMax: document.getElementById('lambda-max'),
+      lightMin: document.getElementById('light-min'),
+      lightMax: document.getElementById('light-max'),
+      hueMin: document.getElementById('hue-min'),
+      hueMax: document.getElementById('hue-max'),
+      atlas: document.getElementById('atlas'),
+      summary: document.getElementById('summary'),
+      searchCount: document.getElementById('search-count'),
+    };
+
+    const formatLab = (lab) => `L* ${lab[0].toFixed(1)} · a* ${lab[1].toFixed(1)} · b* ${lab[2].toFixed(1)}`;
+
+    function luminance(rgb) {
+      const [r, g, b] = rgb.map((v) => {
+        const n = v / 255;
+        return n <= 0.03928 ? n / 12.92 : Math.pow((n + 0.055) / 1.055, 2.4);
+      });
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    }
+
+    function chipTextColor(rgb) {
+      return luminance(rgb) > 0.35 ? '#08090a' : 'white';
+    }
+
+    function applyFilters() {
+      const searchTerm = state.search.trim().toLowerCase();
+      state.filtered = state.data.filter((item) => {
+        if (item.lambda_nm < state.lambda[0] || item.lambda_nm > state.lambda[1]) {
+          return false;
+        }
+        if (item.lab[0] < state.lightness[0] || item.lab[0] > state.lightness[1]) {
+          return false;
+        }
+        if (item.hue < state.hue[0] || item.hue > state.hue[1]) {
+          return false;
+        }
+        if (!searchTerm) {
+          return true;
+        }
+        return (
+          item.sample.toLowerCase().includes(searchTerm) ||
+          item.hex.toLowerCase().includes(searchTerm) ||
+          item.lambda_nm.toFixed(1).includes(searchTerm)
+        );
+      });
+      applySort();
+      render();
+    }
+
+    function applySort() {
+      const sorter = {
+        hue: (a, b) => a.hue - b.hue || a.lab[0] - b.lab[0],
+        lambda: (a, b) => a.lambda_nm - b.lambda_nm,
+        lightness: (a, b) => a.lab[0] - b.lab[0],
+        chroma: (a, b) => a.chroma_step - b.chroma_step || a.lab[0] - b.lab[0],
+      };
+      state.filtered.sort(sorter[state.sort] ?? sorter.hue);
+    }
+
+    function render() {
+      const { filtered } = state;
+      elements.summary.innerHTML = `<strong>${filtered.length}</strong> Farben in Ansicht · λ* ${state.lambda[0]}–${state.lambda[1]} nm · L* ${state.lightness[0]}–${state.lightness[1]} · Hue ${state.hue[0]}–${state.hue[1]}`;
+      elements.searchCount.textContent = state.search ? `${filtered.length} Treffer` : '';
+
+      const html = filtered
+        .map((item) => {
+          const rgb = item.rgb;
+          const fg = chipTextColor(rgb);
+          return `
+            <article class="swatch" aria-label="${item.sample}">
+              <div class="swatch-chip" style="background:${item.hex}">
+                <div class="chip-overlay" style="color:${fg}">
+                  <span>${item.hex}</span>
+                  <span>RGB ${rgb.join(' / ')}</span>
+                </div>
+              </div>
+              <div class="swatch-body">
+                <div class="swatch-header">
+                  <span>${item.sample}</span>
+                  <span class="tag">λ* ${item.lambda_nm.toFixed(1)} nm</span>
+                </div>
+                <div class="swatch-meta">
+                  <span><span>HEX</span><strong>${item.hex}</strong></span>
+                  <span><span>Lab</span><strong>${formatLab(item.lab)}</strong></span>
+                  <span><span>Hue / L / C</span><strong>${item.hue} · ${item.lightness_step} · ${item.chroma_step}</strong></span>
+                </div>
+              </div>
+            </article>
+          `;
+        })
+        .join('');
+
+      elements.atlas.innerHTML = html;
+    }
+
+    function clamp(value, min, max) {
+      return Math.max(min, Math.min(max, value));
+    }
+
+    function attachListeners() {
+      elements.search.addEventListener('input', (event) => {
+        state.search = event.target.value;
+        applyFilters();
+      });
+
+      elements.sort.addEventListener('change', (event) => {
+        state.sort = event.target.value;
+        applySort();
+        render();
+      });
+
+      const numericHandlers = [
+        [elements.lambdaMin, 'lambda', 0],
+        [elements.lambdaMax, 'lambda', 1],
+        [elements.lightMin, 'lightness', 0],
+        [elements.lightMax, 'lightness', 1],
+        [elements.hueMin, 'hue', 0],
+        [elements.hueMax, 'hue', 1],
+      ];
+
+      numericHandlers.forEach(([input, key, index]) => {
+        input.addEventListener('change', (event) => {
+          const minVal = key === 'lambda' ? 380 : key === 'lightness' ? 0 : 0;
+          const maxVal = key === 'lambda' ? 730 : key === 'lightness' ? 100 : 360;
+          const value = clamp(Number(event.target.value || 0), minVal, maxVal);
+          state[key][index] = value;
+          event.target.value = value;
+          if (state[key][0] > state[key][1]) {
+            if (index === 0) {
+              state[key][1] = state[key][0];
+              numericHandlers
+                .find(([el]) => el === (key === 'lambda' ? elements.lambdaMax : key === 'lightness' ? elements.lightMax : elements.hueMax))[0]
+                .value = state[key][1];
+            } else {
+              state[key][0] = state[key][1];
+              numericHandlers
+                .find(([el]) => el === (key === 'lambda' ? elements.lambdaMin : key === 'lightness' ? elements.lightMin : elements.hueMin))[0]
+                .value = state[key][0];
+            }
+          }
+          applyFilters();
+        });
+      });
+    }
+
+    async function init() {
+      try {
+        const response = await fetch('arbe_lambda_grid.json');
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+        const payload = await response.json();
+        state.data = payload.items;
+        state.filtered = [...state.data];
+        attachListeners();
+        applySort();
+        render();
+      } catch (error) {
+        console.error('Grid Atlas konnte nicht geladen werden', error);
+        elements.summary.innerHTML = '<strong>Fehler:</strong> Daten konnten nicht geladen werden.';
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
