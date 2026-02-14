@@ -1,61 +1,111 @@
-# 🌈 ARBE λ* v3.0 – Equal-Energy (UV + Vis, 300–730 nm)
-### Physically grounded spectral balance wavelength analysis  
-**Developed by HelabHLC / freieFarbe e.V.**
-## 🛡️ Open Science & Patent Defense  
-## 🛡️ Offene Wissenschaft & Patentschutz (Defensive Publication)
+# ARBE λ*_V2 – Formal Reference Implementation
 
-**EN**
+This repository provides the normative specification and deterministic reference implementation of λ*_V2 within the ARBE λ* framework.
 
-This repository, its definitions, and computational approaches —
-including but not limited to the ARBE λ* (“Absorption–Reflection Balance Edge”)
-framework — are published as **defensive disclosure and prior art**, in
-alignment with the FreieFarbe mission of open, transparent colour science.
-
-The purpose of this publication is to prevent exclusive appropriation
-through patents or similar instruments. It is not intended to claim
-proprietary rights or normative control over concepts, but to ensure
-that foundational knowledge remains open and reusable.
-
-ARBE λ* is presented here as a **scientific descriptor** and reference
-implementation for research, education, and reproducible analysis. It
-is independent of specific devices, numerical solvers, parameter choices,
-or commercial systems.
-
-No operational thresholds, acceptance criteria, or device-specific
-decision rules are asserted or implied in this work.
-
-For applied, industrial, or normative use beyond this open framework,
-independent validation and domain-specific expertise are required.
+λ*_V2 is defined as the unique energetic balance point of a measured reflectance spectrum over the wavelength interval 380–730 nm.
 
 ---
 
-**DE**
+## 1. Formal Definition
 
-Dieses Repository, seine Definitionen und rechnerischen Ansätze —
-einschließlich, aber nicht beschränkt auf das ARBE λ*
-(*Absorptions–Reflexions-Balancepunkt*)-Konzept — werden als
-**defensive Veröffentlichung und Stand der Technik (Prior Art)**
-im Sinne der FreieFarbe-Mission einer offenen und transparenten
-Farbforschung publiziert.
+Let R(λ) denote a physically measured reflectance spectrum with:
 
-Ziel dieser Veröffentlichung ist es, eine exklusive Aneignung durch
-Patente oder vergleichbare Schutzinstrumente zu verhindern. Es werden
-keine proprietären Rechte oder normativen Ansprüche erhoben, sondern
-grundlegende Erkenntnisse bewusst offen zugänglich gemacht.
+380 nm ≤ λ ≤ 730 nm  
+0 ≤ R(λ) ≤ 1
 
-ARBE λ* wird hier als **wissenschaftlicher Deskriptor** und
-Referenz-Implementierung für Forschung, Lehre und reproduzierbare
-Analysen vorgestellt. Das Konzept ist unabhängig von konkreten
-Geräten, numerischen Verfahren, Parametrisierungen oder
-kommerziellen Systemen.
+Define the balance function:
 
-Es werden ausdrücklich keine operativen Schwellenwerte,
-Akzeptanzkriterien oder gerätespezifischen Entscheidungsregeln
-festgelegt oder impliziert.
+g(λ) =
+∫₃₈₀^λ (1 − R(λ′)) dλ′ − ∫_λ^₇₃₀ R(λ′) dλ′
 
-Eine angewandte, industrielle oder normative Nutzung über diesen
-offenen Rahmen hinaus erfordert eine eigenständige Validierung
-sowie kontextspezifische Fachkompetenz.
+λ*_V2 is defined as the unique λ ∈ [380,730] such that:
+
+g(λ) = 0
+
+---
+
+## 2. Numerical Determination (Normative)
+
+The zero of g(λ) SHALL be computed using:
+
+**Brent–Dekker root-finding method**
+
+Requirements:
+
+- Deterministic algorithm
+- Bracketing within [380,730]
+- Guaranteed convergence for continuous spectra
+- Declared numerical tolerance
+
+Centroid methods, weighted means, CDF medians, or heuristic balancing procedures are not equivalent to λ*_V2.
+
+---
+
+## 3. Distinction from Related Metrics
+
+### λ*_EE (Equal-Energy Centroid)
+
+λ*_EE is defined as:
+
+λ*_EE = ( ∫ λ R(λ) dλ ) / ( ∫ R(λ) dλ )
+
+λ*_EE is a reflected-energy centroid and not identical to λ*_V2.
+
+### Δλ*
+
+Δλ* = λ*_V2 − λ*_EE
+
+Δλ* describes spectral asymmetry and is a secondary descriptor.
+
+---
+
+## 4. Scope
+
+This repository serves as:
+
+- A formal scientific reference
+- A deterministic computational example
+- A reproducible implementation baseline
+
+It does not define:
+
+- A color space
+- A generative color model
+- Industrial thresholds
+- Device-specific control logic
+
+---
+
+## 5. Reproducibility
+
+Implementations claiming compliance with ARBE λ*_V2 MUST:
+
+1. Use measured reflectance spectra.
+2. Restrict computation to 380–730 nm.
+3. Apply deterministic Brent root-finding.
+4. Declare numerical tolerance.
+5. Produce reproducible results.
+
+---
+
+## 6. Citation
+
+If this framework is used in research or applied analysis, please cite:
+
+Woiwod, N. (2026). Formal Specification of λ*_V2 (ARBE λ*), Version 1.0.
+
+---
+
+## 7. License
+
+Code: MIT License  
+Specification text: CC-BY 4.0
+
+---
+
+λ*_V2 is defined as a physical ordering parameter derived from measured reflectance spectra.  
+It is not a perceptual color coordinate, nor a proprietary system.
+
 
 ---
 
