@@ -63,12 +63,15 @@ g(λ)=∫
 λ
 	​
 
-(1−R(λ′))dλ′−∫
-λ
-730
-	​
+$$
+\lambda^*_{EE} =
+\frac{
+\int_{380}^{730} \lambda R(\lambda) d\lambda
+}{
+\int_{380}^{730} R(\lambda) d\lambda
+}
+$$
 
-R(λ′)dλ′
 
 λ*_V2 is defined as the unique λ ∈ [380, 730] such that:
 
