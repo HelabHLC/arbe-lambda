@@ -1,0 +1,192 @@
+{
+  "label": "SIMULATED DATA \u2014 METHOD VALIDATION ONLY \u2014 NOT EMPIRICAL EVIDENCE",
+  "status": "GATE_0_V0_2_COMPLETE",
+  "design": "LINEAR_GAUSSIAN_ICC_0.10",
+  "cells": [
+    {
+      "n_references": 100,
+      "truth": "S0_NULL",
+      "replicates": 250,
+      "decisions": {
+        "S0_NULL": 250,
+        "S1_GLOBAL": 0,
+        "S2_TOPOLOGY": 0
+      },
+      "correct_recovery_rate": 1.0,
+      "mean_recoverable_H1": 0.0,
+      "mean_observed_H1": -0.05337468023889502,
+      "mean_recoverable_H3": 0.0,
+      "mean_observed_H3": -0.06752932805326994
+    },
+    {
+      "n_references": 100,
+      "truth": "S1_GLOBAL",
+      "replicates": 250,
+      "decisions": {
+        "S0_NULL": 72,
+        "S1_GLOBAL": 157,
+        "S2_TOPOLOGY": 21
+      },
+      "correct_recovery_rate": 0.628,
+      "mean_recoverable_H1": 0.15037570713711035,
+      "mean_observed_H1": 0.1959822325228762,
+      "mean_recoverable_H3": 0.0,
+      "mean_observed_H3": -0.05407177847163498
+    },
+    {
+      "n_references": 100,
+      "truth": "S2_TOPOLOGY",
+      "replicates": 250,
+      "decisions": {
+        "S0_NULL": 97,
+        "S1_GLOBAL": 55,
+        "S2_TOPOLOGY": 98
+      },
+      "correct_recovery_rate": 0.392,
+      "mean_recoverable_H1": 0.15014494212681082,
+      "mean_observed_H1": 0.15820353863552522,
+      "mean_recoverable_H3": 0.050592083538992846,
+      "mean_observed_H3": 0.10689453002217111
+    },
+    {
+      "n_references": 400,
+      "truth": "S0_NULL",
+      "replicates": 250,
+      "decisions": {
+        "S0_NULL": 250,
+        "S1_GLOBAL": 0,
+        "S2_TOPOLOGY": 0
+      },
+      "correct_recovery_rate": 1.0,
+      "mean_recoverable_H1": 0.0,
+      "mean_observed_H1": -0.011916456583421171,
+      "mean_recoverable_H3": 0.0,
+      "mean_observed_H3": -0.015200070831184836
+    },
+    {
+      "n_references": 400,
+      "truth": "S1_GLOBAL",
+      "replicates": 250,
+      "decisions": {
+        "S0_NULL": 72,
+        "S1_GLOBAL": 178,
+        "S2_TOPOLOGY": 0
+      },
+      "correct_recovery_rate": 0.712,
+      "mean_recoverable_H1": 0.15000002385774844,
+      "mean_observed_H1": 0.14294702261483752,
+      "mean_recoverable_H3": 0.0,
+      "mean_observed_H3": -0.011979587174834218
+    },
+    {
+      "n_references": 400,
+      "truth": "S2_TOPOLOGY",
+      "replicates": 250,
+      "decisions": {
+        "S0_NULL": 86,
+        "S1_GLOBAL": 61,
+        "S2_TOPOLOGY": 103
+      },
+      "correct_recovery_rate": 0.412,
+      "mean_recoverable_H1": 0.1499999748297525,
+      "mean_observed_H1": 0.12737547053234557,
+      "mean_recoverable_H3": 0.05000001864068631,
+      "mean_observed_H3": 0.054632121993504285
+    },
+    {
+      "n_references": 800,
+      "truth": "S0_NULL",
+      "replicates": 250,
+      "decisions": {
+        "S0_NULL": 250,
+        "S1_GLOBAL": 0,
+        "S2_TOPOLOGY": 0
+      },
+      "correct_recovery_rate": 1.0,
+      "mean_recoverable_H1": 0.0,
+      "mean_observed_H1": -0.00611932166855362,
+      "mean_recoverable_H3": 0.0,
+      "mean_observed_H3": -0.006101529715303669
+    },
+    {
+      "n_references": 800,
+      "truth": "S1_GLOBAL",
+      "replicates": 250,
+      "decisions": {
+        "S0_NULL": 34,
+        "S1_GLOBAL": 216,
+        "S2_TOPOLOGY": 0
+      },
+      "correct_recovery_rate": 0.864,
+      "mean_recoverable_H1": 0.14999996502770582,
+      "mean_observed_H1": 0.14266092520681262,
+      "mean_recoverable_H3": 0.0,
+      "mean_observed_H3": -0.006905019355448589
+    },
+    {
+      "n_references": 800,
+      "truth": "S2_TOPOLOGY",
+      "replicates": 250,
+      "decisions": {
+        "S0_NULL": 51,
+        "S1_GLOBAL": 39,
+        "S2_TOPOLOGY": 160
+      },
+      "correct_recovery_rate": 0.64,
+      "mean_recoverable_H1": 0.1500000038454724,
+      "mean_observed_H1": 0.13707182332716675,
+      "mean_recoverable_H3": 0.04999995121140781,
+      "mean_observed_H3": 0.04883248635315874
+    },
+    {
+      "n_references": 1600,
+      "truth": "S0_NULL",
+      "replicates": 250,
+      "decisions": {
+        "S0_NULL": 250,
+        "S1_GLOBAL": 0,
+        "S2_TOPOLOGY": 0
+      },
+      "correct_recovery_rate": 1.0,
+      "mean_recoverable_H1": 0.0,
+      "mean_observed_H1": -0.0029657351219368857,
+      "mean_recoverable_H3": 0.0,
+      "mean_observed_H3": -0.0028834048891108566
+    },
+    {
+      "n_references": 1600,
+      "truth": "S1_GLOBAL",
+      "replicates": 250,
+      "decisions": {
+        "S0_NULL": 17,
+        "S1_GLOBAL": 233,
+        "S2_TOPOLOGY": 0
+      },
+      "correct_recovery_rate": 0.932,
+      "mean_recoverable_H1": 0.15000001278681988,
+      "mean_observed_H1": 0.14593611209927787,
+      "mean_recoverable_H3": 0.0,
+      "mean_observed_H3": -0.002916760843810358
+    },
+    {
+      "n_references": 1600,
+      "truth": "S2_TOPOLOGY",
+      "replicates": 250,
+      "decisions": {
+        "S0_NULL": 27,
+        "S1_GLOBAL": 20,
+        "S2_TOPOLOGY": 203
+      },
+      "correct_recovery_rate": 0.812,
+      "mean_recoverable_H1": 0.15000005441020572,
+      "mean_observed_H1": 0.1378375482030608,
+      "mean_recoverable_H3": 0.04999999661858511,
+      "mean_observed_H3": 0.0489639703819445
+    }
+  ],
+  "null_false_positive_rate": 0.0,
+  "gate_pass": true,
+  "limitations": [
+    "Gate 0 core design only; full noise/signal/ICC grid and bootstrap/permutation inference remain pending."
+  ]
+}
