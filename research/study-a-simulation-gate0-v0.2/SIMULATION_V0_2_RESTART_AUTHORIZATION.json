@@ -1,0 +1,9 @@
+{
+  "schema": "atlas_arbe_simulation_v0_2_restart_authorization",
+  "authorised_utc": "2026-08-29T00:36:00Z",
+  "authorisation_source": "explicit user instruction: Simulation bitte neu starten",
+  "protocol_v0_2_lock_sha256": "2fb30ec0c17272f399996301ec11897fc3456ce92c2139250adf7e6736b391ae",
+  "scope": "Simulation Protocol v0.2 Gate 0 only",
+  "gate_0_replicates_per_cell": 250,
+  "empirical_confirmatory_run_authorised": false
+}
