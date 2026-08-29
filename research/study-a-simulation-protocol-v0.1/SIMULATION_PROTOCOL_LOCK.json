@@ -1,0 +1,12 @@
+{
+  "schema": "atlas_arbe_simulation_protocol_lock_v0_1",
+  "created_utc": "2026-08-29T00:16:42+00:00",
+  "status": "LOCKED_SIMULATION_NOT_YET_RUN",
+  "files": {
+    "SIMULATION_PROTOCOL_V0_1.md": "f7855dd5cb0a98003a167a44c2dc7f8f909df72cfcbe0b577554aa6a9139796e",
+    "simulation_plan_v0_1.json": "06f21886ecd8dcf076963c6306a878cf74cdad3fd34f74d62901e56cb3001055"
+  },
+  "aggregate_sha256": "e178e4f1545dc81fb91dc66a508bc7dbb8218c97ed7a728a76cea7bf370d7132",
+  "simulation_execution_authorised": false,
+  "empirical_confirmatory_run_authorised": false
+}

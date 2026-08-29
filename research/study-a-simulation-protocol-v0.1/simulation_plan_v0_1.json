@@ -1,0 +1,35 @@
+{
+  "schema": "atlas_arbe_power_recovery_simulation_plan_v0_1",
+  "status": "LOCK_CANDIDATE_SIMULATION_NOT_YET_RUN",
+  "master_seed": 20260831,
+  "scenarios": ["S0_NULL", "S1_GLOBAL", "S2_TOPOLOGY"],
+  "global_effect_mae_reduction": [0.0, 0.02, 0.05, 0.10, 0.15],
+  "topology_effect_mae_reduction": [0.0, 0.01, 0.02, 0.05, 0.10],
+  "reference_counts": [100, 200, 400, 800, 1600],
+  "signal_families": ["LINEAR", "SMOOTH_NONLINEAR", "SPARSE"],
+  "noise_families": ["GAUSSIAN", "STUDENT_T5", "HETEROSCEDASTIC", "CONTAMINATED"],
+  "reference_icc": [0.0, 0.10, 0.30],
+  "effect_calibration_tolerance_absolute": 0.005,
+  "monte_carlo": {
+    "initial_replicates": 250,
+    "batch_replicates": 250,
+    "maximum_replicates": 2000,
+    "minimum_null_replicates": 1000,
+    "wilson_half_width_target": 0.02
+  },
+  "screening_inference": {"bootstrap_replicates": 1000, "permutations": 500},
+  "boundary_inference": {"bootstrap_replicates": 10000, "permutations": 2000},
+  "bootstrap_seed_stream": 20260901,
+  "permutation_seed_stream": 20260902,
+  "adequacy": {
+    "false_positive_target": 0.05,
+    "false_positive_upper_bound": 0.075,
+    "coverage_lower": 0.925,
+    "coverage_upper": 0.975,
+    "power_targets": [0.80, 0.90],
+    "maximum_noise_recovery_drop": 0.20
+  },
+  "sample_acquisition_attrition_margin": 0.15,
+  "simulation_execution_authorised": false,
+  "empirical_confirmatory_run_authorised": false
+}
