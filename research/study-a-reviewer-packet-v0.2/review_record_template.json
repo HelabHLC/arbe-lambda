@@ -1,0 +1,31 @@
+{
+  "schema": "atlas_arbe_independent_review_record_v0_2",
+  "reviewer": {
+    "name": null,
+    "affiliation": null,
+    "expertise": [],
+    "review_date": null,
+    "independence_confirmed": false,
+    "disclosures": []
+  },
+  "package_sha256_verified": false,
+  "checklist_counts": {
+    "pass": 0,
+    "minor": 0,
+    "major": 0,
+    "not_applicable": 0,
+    "insufficient_information": 0
+  },
+  "findings": [],
+  "synthesis": {
+    "h1_answerable": null,
+    "h3_answerable": null,
+    "pilot_boundary_adequate": null,
+    "external_untouched_holdout_possible": null,
+    "degrees_of_freedom_fixed": null,
+    "protocol_v0_3_required": null
+  },
+  "decision": null,
+  "decision_rationale": null,
+  "confirmatory_run_authorised": false
+}
