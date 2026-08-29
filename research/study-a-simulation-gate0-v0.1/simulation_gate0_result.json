@@ -1,0 +1,129 @@
+{
+  "label": "SIMULATED DATA \u2014 METHOD VALIDATION ONLY \u2014 NOT EMPIRICAL EVIDENCE",
+  "status": "GATE_0_IMPLEMENTATION_QUALIFICATION",
+  "design": "LINEAR_GAUSSIAN_ICC_0.10",
+  "cells": [
+    {
+      "n_references": 100,
+      "truth": "S0_NULL",
+      "replicates": 50,
+      "decisions": {
+        "S0_NULL": 50,
+        "S1_GLOBAL": 0,
+        "S2_TOPOLOGY": 0
+      },
+      "correct_recovery_rate": 1.0,
+      "mean_H1_mae_gain": -0.023564361175286784,
+      "mean_H3_mae_gain": -0.019267679649052117
+    },
+    {
+      "n_references": 100,
+      "truth": "S1_GLOBAL",
+      "replicates": 50,
+      "decisions": {
+        "S0_NULL": 50,
+        "S1_GLOBAL": 0,
+        "S2_TOPOLOGY": 0
+      },
+      "correct_recovery_rate": 0.0,
+      "mean_H1_mae_gain": 0.040200510673900604,
+      "mean_H3_mae_gain": -0.02123576391813793
+    },
+    {
+      "n_references": 100,
+      "truth": "S2_TOPOLOGY",
+      "replicates": 50,
+      "decisions": {
+        "S0_NULL": 48,
+        "S1_GLOBAL": 1,
+        "S2_TOPOLOGY": 1
+      },
+      "correct_recovery_rate": 0.02,
+      "mean_H1_mae_gain": 0.04671581962798296,
+      "mean_H3_mae_gain": 0.0017144015099482158
+    },
+    {
+      "n_references": 400,
+      "truth": "S0_NULL",
+      "replicates": 50,
+      "decisions": {
+        "S0_NULL": 50,
+        "S1_GLOBAL": 0,
+        "S2_TOPOLOGY": 0
+      },
+      "correct_recovery_rate": 1.0,
+      "mean_H1_mae_gain": -0.008612760003179638,
+      "mean_H3_mae_gain": -0.006014084409814111
+    },
+    {
+      "n_references": 400,
+      "truth": "S1_GLOBAL",
+      "replicates": 50,
+      "decisions": {
+        "S0_NULL": 46,
+        "S1_GLOBAL": 4,
+        "S2_TOPOLOGY": 0
+      },
+      "correct_recovery_rate": 0.08,
+      "mean_H1_mae_gain": 0.06900336841563195,
+      "mean_H3_mae_gain": -0.008853866172804559
+    },
+    {
+      "n_references": 400,
+      "truth": "S2_TOPOLOGY",
+      "replicates": 50,
+      "decisions": {
+        "S0_NULL": 50,
+        "S1_GLOBAL": 0,
+        "S2_TOPOLOGY": 0
+      },
+      "correct_recovery_rate": 0.0,
+      "mean_H1_mae_gain": 0.06577940962887134,
+      "mean_H3_mae_gain": 0.006554418485779587
+    },
+    {
+      "n_references": 800,
+      "truth": "S0_NULL",
+      "replicates": 50,
+      "decisions": {
+        "S0_NULL": 50,
+        "S1_GLOBAL": 0,
+        "S2_TOPOLOGY": 0
+      },
+      "correct_recovery_rate": 1.0,
+      "mean_H1_mae_gain": -0.003923908185902369,
+      "mean_H3_mae_gain": -0.004285716097578796
+    },
+    {
+      "n_references": 800,
+      "truth": "S1_GLOBAL",
+      "replicates": 50,
+      "decisions": {
+        "S0_NULL": 50,
+        "S1_GLOBAL": 0,
+        "S2_TOPOLOGY": 0
+      },
+      "correct_recovery_rate": 0.0,
+      "mean_H1_mae_gain": 0.06958128059290523,
+      "mean_H3_mae_gain": -0.004014928528208954
+    },
+    {
+      "n_references": 800,
+      "truth": "S2_TOPOLOGY",
+      "replicates": 50,
+      "decisions": {
+        "S0_NULL": 50,
+        "S1_GLOBAL": 0,
+        "S2_TOPOLOGY": 0
+      },
+      "correct_recovery_rate": 0.0,
+      "mean_H1_mae_gain": 0.07092613839136157,
+      "mean_H3_mae_gain": 0.010820067933893063
+    }
+  ],
+  "gate_pass": false,
+  "limitations": [
+    "Qualification subset only; not the full locked simulation grid.",
+    "Threshold recovery only; full bootstrap and permutation stages remain pending."
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "schema": "atlas_arbe_simulation_execution_authorization_v0_1",
+  "authorised_utc": "2026-08-29T00:20:00Z",
+  "authorisation_source": "explicit user instruction: Die Simulation ausführen, bitte",
+  "protocol_lock_sha256": "e178e4f1545dc81fb91dc66a508bc7dbb8218c97ed7a728a76cea7bf370d7132",
+  "scope": "simulation only",
+  "gate_0_implementation_qualification_authorised": true,
+  "full_simulation_authorised_after_gate_0_pass": true,
+  "empirical_confirmatory_run_authorised": false
+}
