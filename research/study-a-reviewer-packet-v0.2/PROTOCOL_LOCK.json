@@ -1,0 +1,10 @@
+{
+  "schema": "atlas_arbe_protocol_lock_v0_2",
+  "created_utc": "2026-08-29T00:06:35+00:00",
+  "status": "LOCKED_NO_CONFIRMATORY_RUN_AUTHORISED",
+  "files": {
+    "PROTOCOL_V0_2.md": "fc577fadb7c9cd048eeac54c49ec04fd2b6c749545bc2b1334ee23ed0eac4c04",
+    "analysis_plan_v0_2.json": "137660c464ccbdaa637d5a5377642c1f4132bd80c8bb19e0a07117abd96e8e66"
+  },
+  "aggregate_sha256": "ccb3e1082186c0f8efac0b6e007f1022c20d60234fa5d1f93230a6ecce144cfd"
+}
