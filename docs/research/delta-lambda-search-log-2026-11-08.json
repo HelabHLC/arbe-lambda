@@ -1,0 +1,160 @@
+{
+  "review_date": "2026-11-08",
+  "review_timezone": "Europe/Berlin",
+  "query_count": 30,
+  "scope": "Bounded public web discovery, followed by primary-source formula and project-history checks. No claim of exhaustive coverage or legal novelty determination.",
+  "queries": [
+    {
+      "batch": 1,
+      "search_system": "system1",
+      "query": "\"reflectance\" \"centroid\" \"mean reflectance\" spectral descriptor"
+    },
+    {
+      "batch": 1,
+      "search_system": "system1",
+      "query": "\"spectral\" \"balance wavelength\" absorption reflection"
+    },
+    {
+      "batch": 1,
+      "search_system": "system1",
+      "query": "\"ARBE\" \"delta\" \"lambda\" spectral"
+    },
+    {
+      "batch": 2,
+      "search_system": "system2",
+      "query": "spectral reflectance descriptors centroid variance skewness moments"
+    },
+    {
+      "batch": 2,
+      "search_system": "system2",
+      "query": "\"reflectance\" \"centroid\" \"integrated\" descriptor"
+    },
+    {
+      "batch": 2,
+      "search_system": "system2",
+      "query": "\"spectral\" \"absorption\" \"reflection\" \"balance point\" wavelength -site:arbe-lambda-star.com -site:linkedin.com -site:github.com"
+    },
+    {
+      "batch": 3,
+      "search_system": "system1",
+      "query": "\"spectral reflectance\" \"moment distance index\" original paper"
+    },
+    {
+      "batch": 3,
+      "search_system": "system1",
+      "query": "\"reflectance\" \"area\" \"centroid\" \"difference\" descriptor"
+    },
+    {
+      "batch": 3,
+      "search_system": "system1",
+      "query": "\"reflectance\" \"mean\" \"centroid\" \"delta\" wavelength"
+    },
+    {
+      "batch": 4,
+      "search_system": "system2",
+      "query": "\"spectrum\" \"area minus\" \"centroid\""
+    },
+    {
+      "batch": 4,
+      "search_system": "system2",
+      "query": "\"reflectance\" \"centroid difference\""
+    },
+    {
+      "batch": 4,
+      "search_system": "system2",
+      "query": "\"reflectance\" \"zeroth moment\" \"first moment\""
+    },
+    {
+      "batch": 4,
+      "search_system": "system2",
+      "query": "\"absorption reflection balance\" wavelength"
+    },
+    {
+      "batch": 5,
+      "search_system": "system1",
+      "query": "\"spectral\" \"area\" \"centroid\" \"difference\" reflectance index -site:linkedin.com -site:arbe-lambda-star.com"
+    },
+    {
+      "batch": 5,
+      "search_system": "system1",
+      "query": "\"equivalent width\" \"centroid\" \"difference\" \"asymmetry\""
+    },
+    {
+      "batch": 5,
+      "search_system": "system1",
+      "query": "\"reflectance\" \"mean reflectance\" \"centroid\" -site:arbe-lambda-star.com -site:linkedin.com"
+    },
+    {
+      "batch": 6,
+      "search_system": "system2",
+      "query": "\"reflectance\" \"area-centroid\""
+    },
+    {
+      "batch": 6,
+      "search_system": "system2",
+      "query": "\"reflectance\" \"area minus centroid\""
+    },
+    {
+      "batch": 6,
+      "search_system": "system2",
+      "query": "\"spectral\" \"M0\" \"M1/M0\" difference"
+    },
+    {
+      "batch": 6,
+      "search_system": "system2",
+      "query": "\"ARBE\" \"Delta\" \"Woiwod\""
+    },
+    {
+      "batch": 7,
+      "search_system": "system1",
+      "query": "\"Peeters\" \"2004\" \"A large set\" site:ircam.fr"
+    },
+    {
+      "batch": 7,
+      "search_system": "system1",
+      "query": "\"reflectance\" \"centroid\" \"area under\" -site:linkedin.com -site:arbe-lambda-star.com"
+    },
+    {
+      "batch": 7,
+      "search_system": "system1",
+      "query": "\"Reflexion\" \"Schwerpunkt\" \"Differenz\" \"Integral\" ARBE"
+    },
+    {
+      "batch": 8,
+      "search_system": "system1",
+      "query": "\"spectral\" \"area minus centroid\""
+    },
+    {
+      "batch": 8,
+      "search_system": "system1",
+      "query": "\"reflectance\" \"mean minus\" \"centroid\""
+    },
+    {
+      "batch": 8,
+      "search_system": "system1",
+      "query": "\"spectral\" \"centroid\" \"M0^2\""
+    },
+    {
+      "batch": 8,
+      "search_system": "system1",
+      "query": "\"ARBE\" \"17038866\""
+    },
+    {
+      "batch": 9,
+      "search_system": "system1",
+      "query": "site:mdpi.com/2072-4292/6/1/20 \"MDI\" \"MD\" \"sqrt\""
+    },
+    {
+      "batch": 9,
+      "search_system": "system1",
+      "query": "\"A New Approach for the Analysis of Hyperspectral Data\" \"RP\" \"LP\""
+    },
+    {
+      "batch": 9,
+      "search_system": "system1",
+      "query": "\"lambda_v2\" \"delta_lambda\" -site:github.com/HelabHLC -site:arbe-lambda-star.com -site:linkedin.com"
+    }
+  ],
+  "interpretation": "No identical external predecessor was established in the reviewed sources; absence of a matching search hit is not proof of historical novelty.",
+  "source_comparisons": "delta-lambda-novelty-review-2026-11-08.md"
+}

@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "scope": "Synthetic numerical verification of the stated mathematical identity; not empirical validation or novelty proof",
+  "source_definition_commit": "cb566dddca3adeecbd8ac3b8ac352d270d7df585",
+  "sign_convention": "delta_lambda_nm = lambda_v2_nm - lambda_ee_nm",
+  "domain_nm": [
+    380.0,
+    730.0
+  ],
+  "curve_model": "piecewise linear",
+  "seed": 20261108,
+  "cases": 544,
+  "case_groups": {
+    "constant": 20,
+    "ramp": 8,
+    "oscillation": 4,
+    "random": 384,
+    "perturbed": 128
+  },
+  "max_brent_minus_direct_abs_nm": 2.2737367544323206e-13,
+  "max_original_balance_residual_abs_nm": 4.831690603168681e-13,
+  "worst_case": "1nm/random/38",
+  "brent_xtol_nm": 1e-10,
+  "brent_rtol": 1e-14,
+  "comparison_atol_nm": 1e-08,
+  "quadrature_epsabs_nm": 1e-09,
+  "quadrature_epsrel": 1e-12,
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "script_sha256": "b780040237d811cb71f87b14060c5deefdfe422a0d07e9f649932020a18219d4",
+  "examples": {
+    "constant_20_percent": {
+      "mean_reflectance": 0.2,
+      "area_nm": 70.0,
+      "lambda_v2_direct_nm": 450.0,
+      "lambda_ee_nm": 555.0,
+      "delta_lambda_nm": -105.0,
+      "mu2_nm2": 10208.333333333336,
+      "sigma_star_nm": 101.03629710818453,
+      "mu3_nm3": -1.208614371778216e-09,
+      "skewness_gamma1": -1.171805387014984e-15,
+      "lambda_v2_brent_nm": 450.0
+    },
+    "constant_30_percent": {
+      "mean_reflectance": 0.3,
+      "area_nm": 105.0,
+      "lambda_v2_direct_nm": 485.0,
+      "lambda_ee_nm": 555.0,
+      "delta_lambda_nm": -70.0,
+      "mu2_nm2": 10208.333333333338,
+      "sigma_star_nm": 101.03629710818453,
+      "mu3_nm3": -1.2396044838750935e-09,
+      "skewness_gamma1": -1.2018516789897268e-15,
+      "lambda_v2_brent_nm": 485.0
+    },
+    "linear_12_to_48_percent": {
+      "mean_reflectance": 0.3,
+      "area_nm": 105.0,
+      "lambda_v2_direct_nm": 485.0,
+      "lambda_ee_nm": 590.0,
+      "delta_lambda_nm": -105.0,
+      "mu2_nm2": 8983.333333333338,
+      "sigma_star_nm": 94.78044805408622,
+      "mu3_nm3": -343000.0000000019,
+      "skewness_gamma1": -0.4028448795687273,
+      "lambda_v2_brent_nm": 485.0
+    },
+    "triangle": {
+      "mean_reflectance": 0.5,
+      "area_nm": 175.0,
+      "lambda_v2_direct_nm": 555.0,
+      "lambda_ee_nm": 555.0,
+      "delta_lambda_nm": 0.0,
+      "mu2_nm2": 5104.166666666666,
+      "sigma_star_nm": 71.44345083117602,
+      "mu3_nm3": -5.950101522600448e-10,
+      "skewness_gamma1": -1.6316879466126223e-15,
+      "lambda_v2_brent_nm": 555.0
+    }
+  }
+}
