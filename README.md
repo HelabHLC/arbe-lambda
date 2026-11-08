@@ -1,254 +1,142 @@
-ARBE λ*_V2
-Formal Specification – Reference Definition (Version 1.0)
+# ARBE λ*_V2 — definition and mathematical clarification
 
-This repository defines the normative specification and deterministic reference implementation of λ*_V2 within the ARBE λ* framework.
+Formal Specification 1.0, with a mathematical clarification dated **2026-11-08**.
+The balance equation, 380–730 nm domain, current Δλ* sign, and Brent conformance
+requirement below are retained. This clarification corrects the earlier claim
+that all mean-based evaluations are mathematically inequivalent.
 
-λ*_V2 is a physical ordering parameter derived from measured reflectance spectra.
-It represents the unique energetic balance point between absorption and reflection within the visible spectral interval.
-
-1. Spectral Domain
-
-Let R(λ) denote a physically measured reflectance spectrum with:
-
-380 nm ≤ λ ≤ 730 nm
-
-0 ≤ R(λ) ≤ 1
-
-The computation SHALL be restricted strictly to the interval:
-
-[380 nm, 730 nm]
-
-No UV extension is part of this specification.
-
-2. Formal Definition
-
-Define the balance function:
-
-𝑔
-(
-𝜆
-)
-=
-∫
-380
-𝜆
-(
-1
-−
-𝑅
-(
-𝜆
-′
-)
-)
- 
-𝑑
-𝜆
-′
-−
-∫
-𝜆
-730
-𝑅
-(
-𝜆
-′
-)
- 
-𝑑
-𝜆
-′
-g(λ)=∫
-380
-λ
-	​
+**Main result:** λ*_V2 is an exact affine encoding of unweighted mean reflectance.
+It is not numerically the same quantity as dimensionless reflectance, but the
+two contain exactly the same information on the fixed interval:
 
 $$
-\lambda^*_{EE} =
-\frac{
-\int_{380}^{730} \lambda R(\lambda) d\lambda
-}{
-\int_{380}^{730} R(\lambda) d\lambda
-}
+\lambda^*_{V2}=380\,\mathrm{nm}+350\,\mathrm{nm}\,\overline R,
+\qquad \overline R=\frac{\lambda^*_{V2}-380\,\mathrm{nm}}{350\,\mathrm{nm}}.
 $$
 
+**Deutsch:** Die Gleichwertigkeit nach dieser Umrechnung ist mathematisch
+bewiesen. Gemeint ist das ungewichtete Integral-Mittel auf demselben Intervall,
+nicht jeder beliebige Stichprobenmittelwert oder eine beleuchtergewichtete Größe.
+Die historische Neuheit der konkreten Δλ*-Kombination ist damit weder bewiesen
+noch widerlegt.
 
-λ*_V2 is defined as the unique λ ∈ [380, 730] such that:
+- [Proof, assumptions, noise, and counterexamples](docs/research/v2-mean-reflectance-identity.md)
+- [Δλ*: novelty review, source history, and search limits](docs/research/delta-lambda-novelty-review-2026-11-08.md)
+- [Machine-readable verification result](results/v2_identity_2026-11-08.json)
+- [Repository roles and dataset release policy](docs/repository-roles-and-release-policy.md)
 
-𝑔
-(
-𝜆
-)
-=
-0
-g(λ)=0
+## 1. Spectral domain and formal definition
 
-For physically valid, continuous reflectance spectra, this solution exists and is unique.
+Let $a=380\,\mathrm{nm}$, $b=730\,\mathrm{nm}$ and let $R(\lambda)$ be
+dimensionless reflectance, with $0\leq R\leq1$. Implementations claiming
+measurement conformance use measured reflectance spectra. Synthetic functions
+are permitted as explicitly labelled mathematical test inputs.
 
-3. Numerical Determination (Normative)
+The definition is
 
-The zero of g(λ) SHALL be computed using:
+$$
+g(x)=\int_a^x[1-R(\lambda)]\,d\lambda-\int_x^bR(\lambda)\,d\lambda,
+\qquad g(\lambda^*_{V2})=0.
+$$
 
-Brent–Dekker root-finding method
+Combining the integrals gives, exactly,
 
-Requirements:
+$$
+g(x)=x-a-\int_a^bR(\lambda)\,d\lambda,
+\qquad \lambda^*_{V2}=a+\int_a^bR(\lambda)\,d\lambda.
+$$
 
-Deterministic algorithm
+Consequently $g$ has slope 1 and a unique root in $[a,b]$ for every integrable
+$R$ in the stated range. Neither monotonicity nor continuity of $R$ is needed
+for this theorem. This is a global integral balance, not a local crossing of
+$R=1-R$, a spectral peak, or a dominant perceived wavelength.
 
-Bracketing within [380, 730]
+Calling $1-R$ physical absorptance requires the appropriate energy accounting,
+including negligible transmission and compatible reflection measurement. The
+unweighted integral is not a measured radiant-energy integral under an arbitrary
+illuminant. These physical qualifications do not change the algebraic identity.
 
-Guaranteed convergence for continuous spectra
+## 2. Numerical determination and conformance
 
-Declared numerical tolerance
+For compatibility with Formal Specification 1.0, implementations claiming
+**Brent procedure conformance** SHALL use deterministic Brent–Dekker root-finding
+on $[380,730]$ nm, declare numerical tolerance, and ensure reproducibility.
+Numerical methods SHALL document input units, interpolation and integration.
 
-Reproducible output
+Mathematical equivalence and procedure conformance are different claims:
 
-The following procedures are NOT equivalent to λ*_V2:
+- Exact evaluation of $a+\int R$ solves the same equation and gives the same
+  mathematical value. It does not by itself execute the prescribed Brent step.
+- A centroid, spectral median or a local threshold crossing is generally a
+  different quantity.
+- An arithmetic average of sampled values is not automatically the integral
+  average. Quadrature weights and the curve model matter.
+- Brent's root tolerance is not a material measurement uncertainty or a noise
+  filter. The same perturbed spectrum obeys the same identity.
 
-Energy centroids
+## 3. EE, Δλ*, and structural moments
 
-Weighted means
+For positive integrated reflectance, define
 
-CDF-based 50% points
+$$
+c=\lambda^*_{EE}=\frac{\int_a^b\lambda R(\lambda)\,d\lambda}{\int_a^bR(\lambda)\,d\lambda},
+\qquad \Delta\lambda^*=\lambda^*_{V2}-\lambda^*_{EE}.
+$$
 
-Discrete summation heuristics
+EE is the classical reflectance-weighted centroid. Δλ* combines mean reflectance
+and centroid; it is not a pure skewness measure or a universal metamerism index.
+EE alone cannot determine Δλ*, but EE together with mean reflectance determines
+it exactly. The current sign is **V2 − EE**; the historical v2.1 release used
+the reverse sign and must not be mixed silently with current records.
 
-Linear balancing approximations
+| Field | Definition | Unit |
+|---|---|---|
+| λ*_V2 | $a+(b-a)\overline R$ | nm |
+| λ*_EE | $c$ | nm |
+| Δλ* | $a+(b-a)\overline R-c$ | nm |
+| μ₂ | $\int(\lambda-c)^2R\,d\lambda/\int R\,d\lambda$ | nm² |
+| σ* | $\sqrt{\mu_2}$ | nm |
+| μ₃ | $\int(\lambda-c)^3R\,d\lambda/\int R\,d\lambda$ | nm³ |
+| γ₁ | $\mu_3/\mu_2^{3/2}$ | dimensionless |
 
-Such methods do not satisfy the balance equation definition.
+Seven fields encode four underlying quantities: mean reflectance, centroid,
+second and third central moments. Normalized moments are undefined at zero
+area; normalized skewness also requires positive variance. The width σ* is not
+measurement uncertainty. Equal fields do not guarantee equal spectra.
 
-4. Distinction from Related Metrics
-4.1 λ*_EE (Equal-Energy Centroid)
-𝜆
-𝐸
-𝐸
-∗
-=
-∫
-380
-730
-𝜆
-𝑅
-(
-𝜆
-)
- 
-𝑑
-𝜆
-∫
-380
-730
-𝑅
-(
-𝜆
-)
- 
-𝑑
-𝜆
-λ
-EE
-∗
-	​
+## 4. Reproduce the mathematical audit
 
-=
-∫
-380
-730
-	​
+```bash
+python -m pip install -r requirements-audit.txt
+python -m pytest -q
+python scripts/verify_v2_identity.py --output /tmp/v2_identity.json
+```
 
-R(λ)dλ
-∫
-380
-730
-	​
+The recorded run contains **544 synthetic piecewise-linear spectra** on 1, 5,
+10 nm and irregular grids. Brent evaluates the original two integrals using
+adaptive quadrature; a separate trapezoidal calculation evaluates the area.
+Maximum absolute difference: **2.274 × 10⁻¹³ nm**. The **28 passing tests** include
+the unchanged historical threshold test plus analytic oracles, invalid inputs,
+endpoint roots, a discontinuous function, and counterexamples. These are
+numerical checks supporting the proof, not laboratory validation or independent
+scientific peer review. [CI workflow](.github/workflows/v2-identity-audit.yml).
 
-λR(λ)dλ
-	​
+**Implementation distinction:** [`arbe_lambda.py`](arbe_lambda.py) computes the
+first rising crossing of $R=\sqrt2-1$. It is a historical threshold algorithm,
+not an implementation of the V2 integral equation. Its original test is retained
+and labelled separately from the new audit. No master or source data are changed.
 
+## 5. Scientific scope and citation
 
-λ_EE is a reflected-energy centroid.
-It is not identical to λ_V2.
+ARBE is a reproducible spectral descriptor framework. A compact representation
+can be useful without adding information to the underlying spectrum. Historical
+priority and application performance require their own evidence. No industrial
+thresholds, device logic, material authentication guarantee, clinical claim or
+release criteria follow from the identity or the numerical tests.
 
-4.2 Δλ*
-Δ
-𝜆
-∗
-=
-𝜆
-𝑉
-2
-∗
-−
-𝜆
-𝐸
-𝐸
-∗
-Δλ
-∗
-=λ
-V2
-∗
-	​
+Reference definition: Woiwod, N. (2026), ARBE λ*_V2 – Formal Specification 1.0.0,
+[DOI 10.5281/zenodo.18644381](https://doi.org/10.5281/zenodo.18644381).
+When citing this clarification, additionally cite its Git commit; it does not
+alter the archived DOI or existing release tags.
 
-−λ
-EE
-∗
-	​
-
-
-Δλ* describes spectral asymmetry and is a secondary descriptor.
-It does not replace λ*_V2.
-
-5. Scope
-
-This repository serves as:
-
-A formal scientific reference
-
-A deterministic computational baseline
-
-A reproducible implementation standard
-
-It does NOT define:
-
-A color space
-
-A generative color model
-
-Industrial thresholds
-
-Device-specific control logic
-
-Normative release criteria
-
-6. Compliance Requirements
-
-Implementations claiming conformity with ARBE λ*_V2 MUST:
-
-Use measured reflectance spectra.
-
-Restrict computation to 380–730 nm.
-
-Apply deterministic Brent root-finding.
-
-Declare numerical tolerance.
-
-Ensure reproducibility.
-
-Failure to meet these conditions constitutes non-conformity with the specification.
-
-7. Citation
-
-If used in research or applied analysis, please cite:
-
-Woiwod, N. (2026).
-Formal Specification of λ_V2 (ARBE λ*), Version 1.0.*
-
-8. License
-
-Code: MIT License
-Specification text: CC-BY 4.0
-
-λ*_V2 is defined as a physical ordering parameter derived from measured reflectance spectra.
-It is not a perceptual coordinate, not a proprietary system, and not a generative model.
-
+Code: MIT. Specification text: CC-BY 4.0. Source-data rights remain separate.
