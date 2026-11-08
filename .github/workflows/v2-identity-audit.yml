@@ -5,17 +5,23 @@ on:
     paths:
       - README.md
       - 'docs/research/**'
-      - 'scripts/verify_v2_identity.py'
+      - 'scripts/**'
+      - 'docs/tools/**'
+      - 'examples/**'
       - 'tests/**'
       - requirements-audit.txt
+      - requirements-tools.txt
       - '.github/workflows/v2-identity-audit.yml'
   pull_request:
     paths:
       - README.md
       - 'docs/research/**'
-      - 'scripts/verify_v2_identity.py'
+      - 'scripts/**'
+      - 'docs/tools/**'
+      - 'examples/**'
       - 'tests/**'
       - requirements-audit.txt
+      - requirements-tools.txt
       - '.github/workflows/v2-identity-audit.yml'
   workflow_dispatch:
 
@@ -36,3 +42,5 @@ jobs:
       - run: python -m pip install -r requirements-audit.txt
       - run: python -m pytest -q
       - run: python scripts/verify_v2_identity.py --output /tmp/v2_identity.json
+      - run: python scripts/verify_delta_uncertainty.py --output /tmp/delta_uncertainty.json
+      - run: python scripts/delta_lambda_pipeline.py examples/delta_synthetic.csv --output /tmp/delta_example.csv

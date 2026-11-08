@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-08",
+  "evidence_level": "synthetic_numerical_verification_not_laboratory_validation",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "seed": 20261108,
+  "monte_carlo_repetitions": 50000,
+  "noise_assumptions": {
+    "white_absolute_sd": 0.0001,
+    "shared_offset_sd": 5e-05,
+    "shared_fractional_gain_sd": 0.0002
+  },
+  "covariance_order": [
+    "area_nm",
+    "centroid_nm",
+    "lambda_v2_nm",
+    "delta_lambda_nm"
+  ],
+  "first_order_standard_uncertainty_nm": [
+    0.033537292675468004,
+    0.00543643641629909,
+    0.033537292675468004,
+    0.03581567292288638
+  ],
+  "monte_carlo_standard_deviation_nm": [
+    0.03357037717247992,
+    0.0054269186496376095,
+    0.03357037717247993,
+    0.03584335714384318
+  ],
+  "monte_carlo_to_first_order_sd_ratio": [
+    1.0009864987413284,
+    0.9982492636843971,
+    1.0009864987413288,
+    1.00077296386463
+  ],
+  "relative_covariance_frobenius_error": 0.0018471659835212954,
+  "validation_tolerances": {
+    "relative_standard_deviation": 0.03,
+    "relative_covariance_frobenius_norm": 0.05
+  },
+  "original_attachment_integer_noise_bug_reproduced": true,
+  "corrected_attachment_point_model_u_D_nm": 0.08620570731390437,
+  "linear_ramp_centroid_point_nm": 613.4285714285714,
+  "linear_ramp_centroid_exact_interpolant_nm": 613.3333333333334,
+  "calculator_sha256": "1d8eaff3015ef8132f2c6f3b77bf4fe1b9871413aef66e0c8eb6d38f02fab055",
+  "validation_script_sha256": "dc59c18fea4d4a58b305ea991866fbdbfb321fa7a0e43786ee6a83bb3ed3659d",
+  "laboratory_data_used": false
+}
