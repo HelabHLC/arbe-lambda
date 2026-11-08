@@ -1,0 +1,37 @@
+{
+  "schema": "atlas_arbe_study_a_analysis_plan_v0_2",
+  "status": "LOCK_CANDIDATE_NO_CONFIRMATORY_RUN_AUTHORISED",
+  "input": {
+    "record_count": 13283,
+    "grid_nm": [380, 730, 10],
+    "index_sha256": "2c0682593d09fb5c83884f788e8dbfa8c570380a9a637461d63af7b6830131e0",
+    "weight_sha256": {
+      "D50": "8a0f919853d6d8aa5a0d20e0f02f35b4b2f1d0afe6868b3a404dc1ff341522b9",
+      "D65": "a6bc9cdcf9d1f16828ba33c77591550c290885628473af06b3ae136af31a9c7a",
+      "A": "d08a63b5858e35dc47828a519b859ff218df787097ace6decf3274493a5436a0",
+      "LEDB1": "06b1a17e937ba337367f5c447687a4b2768ce38618049845b506f594ce3127a3",
+      "F11": "2a0c2e595cf8c0a02d15f00849fb04e31138e9c1f0c4a2382f328fc1ec57d8af"
+    }
+  },
+  "pairing": {"outer_folds": 5, "nearest_neighbours_k": 10, "deduplicate_unordered": true},
+  "inner_folds": 4,
+  "estimators": {
+    "ridge": {"alpha": [0.01, 0.1, 1.0, 10.0, 100.0]},
+    "hist_gradient_boosting": {
+      "learning_rate": [0.03, 0.1],
+      "max_iter": [200, 500],
+      "max_leaf_nodes": [15, 31],
+      "l2_regularization": [0.0, 1.0, 10.0]
+    },
+    "selection_metric": "grouped_inner_cv_mae"
+  },
+  "bootstrap": {"unit": "reference", "replicates": 10000, "seed": 20260829, "confidence": 0.95},
+  "permutation": {"unit": "reference_within_colourimetric_stratum", "replicates": 2000, "seed": 20260830},
+  "primary_comparison": "A1_global_ARBE_vs_B2_strong_nonlinear_colourimetry",
+  "topology_comparison": "A2_topology_vs_A1_global_ARBE",
+  "success": {
+    "H1": {"minimum_relative_mae_reduction": 0.10, "minimum_improved_outer_folds": 4, "alpha": 0.05},
+    "H3": {"minimum_relative_mae_reduction": 0.02, "alpha": 0.05}
+  },
+  "confirmatory_run_authorised": false
+}
