@@ -1,0 +1,165 @@
+{
+  "status": "PILOT_PIPELINE_CHECK_NOT_CONFIRMATORY",
+  "index_sha256": "2c0682593d09fb5c83884f788e8dbfa8c570380a9a637461d63af7b6830131e0",
+  "weight_sha256": {
+    "D50": "8a0f919853d6d8aa5a0d20e0f02f35b4b2f1d0afe6868b3a404dc1ff341522b9",
+    "D65": "a6bc9cdcf9d1f16828ba33c77591550c290885628473af06b3ae136af31a9c7a",
+    "A": "d08a63b5858e35dc47828a519b859ff218df787097ace6decf3274493a5436a0",
+    "LEDB1": "06b1a17e937ba337367f5c447687a4b2768ce38618049845b506f594ce3127a3",
+    "F11": "2a0c2e595cf8c0a02d15f00849fb04e31138e9c1f0c4a2382f328fc1ec57d8af"
+  },
+  "record_count": 13283,
+  "pair_count": 78702,
+  "fold_reference_counts": [
+    2674,
+    2673,
+    2690,
+    2630,
+    2616
+  ],
+  "endpoint": "IIS pair divergence vs D50",
+  "models": {
+    "M1_colourimetry": {
+      "mean_mae": 0.34103777557317116,
+      "mean_r2": 0.1444087317778439,
+      "mae_reduction_vs_M1_pct": 0.0
+    },
+    "M2_global_ARBE": {
+      "mean_mae": 0.2863079743803277,
+      "mean_r2": 0.3683997034636383,
+      "mae_reduction_vs_M1_pct": 16.048017291005632
+    },
+    "M3_ARBE_topology": {
+      "mean_mae": 0.28766777346149297,
+      "mean_r2": 0.44605435864029186,
+      "mae_reduction_vs_M1_pct": 15.649293402169585
+    }
+  },
+  "fold_results": [
+    {
+      "fold": 0,
+      "model": "M1_colourimetry",
+      "n_test": 15846,
+      "mae": 0.34102381562957057,
+      "r2": 0.14995600612646187,
+      "alpha": 100.0
+    },
+    {
+      "fold": 0,
+      "model": "M2_global_ARBE",
+      "n_test": 15846,
+      "mae": 0.28568103369351805,
+      "r2": 0.39077851702927,
+      "alpha": 0.01
+    },
+    {
+      "fold": 0,
+      "model": "M3_ARBE_topology",
+      "n_test": 15846,
+      "mae": 0.2906779828424607,
+      "r2": 0.43706116536252715,
+      "alpha": 100.0
+    },
+    {
+      "fold": 1,
+      "model": "M1_colourimetry",
+      "n_test": 15870,
+      "mae": 0.3482932604741508,
+      "r2": 0.11975214000081702,
+      "alpha": 100.0
+    },
+    {
+      "fold": 1,
+      "model": "M2_global_ARBE",
+      "n_test": 15870,
+      "mae": 0.29653346287342064,
+      "r2": 0.2712726097037649,
+      "alpha": 0.01
+    },
+    {
+      "fold": 1,
+      "model": "M3_ARBE_topology",
+      "n_test": 15870,
+      "mae": 0.29249296058869106,
+      "r2": 0.3975018537727294,
+      "alpha": 100.0
+    },
+    {
+      "fold": 2,
+      "model": "M1_colourimetry",
+      "n_test": 15890,
+      "mae": 0.3254329914987902,
+      "r2": 0.1757626126404338,
+      "alpha": 100.0
+    },
+    {
+      "fold": 2,
+      "model": "M2_global_ARBE",
+      "n_test": 15890,
+      "mae": 0.2695920313513213,
+      "r2": 0.48798197601467175,
+      "alpha": 0.01
+    },
+    {
+      "fold": 2,
+      "model": "M3_ARBE_topology",
+      "n_test": 15890,
+      "mae": 0.2754128272429361,
+      "r2": 0.48103608092659,
+      "alpha": 100.0
+    },
+    {
+      "fold": 3,
+      "model": "M1_colourimetry",
+      "n_test": 15537,
+      "mae": 0.33655161317535576,
+      "r2": 0.15484279319486327,
+      "alpha": 100.0
+    },
+    {
+      "fold": 3,
+      "model": "M2_global_ARBE",
+      "n_test": 15537,
+      "mae": 0.28236643323221267,
+      "r2": 0.37158790324987023,
+      "alpha": 0.01
+    },
+    {
+      "fold": 3,
+      "model": "M3_ARBE_topology",
+      "n_test": 15537,
+      "mae": 0.2810763095688525,
+      "r2": 0.47095993051174256,
+      "alpha": 100.0
+    },
+    {
+      "fold": 4,
+      "model": "M1_colourimetry",
+      "n_test": 15559,
+      "mae": 0.3538871970879887,
+      "r2": 0.12173010692664354,
+      "alpha": 100.0
+    },
+    {
+      "fold": 4,
+      "model": "M2_global_ARBE",
+      "n_test": 15559,
+      "mae": 0.2973669107511656,
+      "r2": 0.32037751132061487,
+      "alpha": 0.01
+    },
+    {
+      "fold": 4,
+      "model": "M3_ARBE_topology",
+      "n_test": 15559,
+      "mae": 0.2986787870645244,
+      "r2": 0.4437127626278705,
+      "alpha": 100.0
+    }
+  ],
+  "limitations": [
+    "Analysis choices were not preregistered before this pilot.",
+    "Predictors and endpoint derive from the same atlas spectra; physical causality is not established.",
+    "External measured samples remain mandatory for industrial claims."
+  ]
+}
