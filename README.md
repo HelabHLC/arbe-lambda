@@ -25,6 +25,44 @@ noch widerlegt.
 - [Machine-readable verification result](results/v2_identity_2026-11-08.json)
 - [Repository roles and dataset release policy](docs/repository-roles-and-release-policy.md)
 
+## Try your own spectra: three-step CSV quickstart
+
+The [CSV research tool](scripts/delta_lambda_pipeline.py) evaluates one or more
+reflectance spectra locally, without writing Python code. It reports area, mean
+reflectance, centroid, λ*_V2 and Δλ*. Optional uncertainty propagation follows the
+GUM first-order approach for **supplied reflectance errors at fixed wavelengths**;
+this is not a full instrument uncertainty budget or an industrial validation.
+
+**1. Download and install.** Install Python 3.12, [download the repository ZIP](https://github.com/HelabHLC/arbe-lambda/archive/refs/heads/main.zip),
+extract it, and open a terminal in the extracted folder:
+
+```bash
+python -m pip install -r requirements-tools.txt
+```
+
+**2. Prepare your CSV.** Use `wavelength_nm` as the first column and one column
+per spectrum. Include all measured wavelength rows, strictly increasing from
+380 to 730 nm. Use decimal points and reflectance fractions from 0 to 1.
+The [synthetic example](examples/delta_synthetic.csv) is a ready-to-run template;
+it contains no measured material or HLC reference data.
+
+**3. Run the calculation.** Replace `my_spectra.csv` with your input filename:
+
+```bash
+python scripts/delta_lambda_pipeline.py my_spectra.csv --output results.csv
+```
+
+For a first check, use `examples/delta_synthetic.csv` instead. The command writes
+`results.csv` plus `results.json` with calculation settings and any supplied
+uncertainty/covariance information. **Without uncertainty inputs, uncertainty
+fields are blank in CSV and `null` in JSON: unknown, not zero.** The calculator
+does not upload your spectra; after installing dependencies it runs offline.
+
+[Full guide: CSV layout, percent units, uncertainty files, covariance and interpretation](docs/tools/delta-csv-quickstart.md).
+The core uses the proved area identity for V2, not the separately prescribed
+Brent–Dekker procedure. Historical threshold code and frozen specifications remain
+separate. Mathematical equivalence does not imply a procedure-conformance claim.
+
 ## 1. Spectral domain and formal definition
 
 Let $a=380\,\mathrm{nm}$, $b=730\,\mathrm{nm}$ and let $R(\lambda)$ be
@@ -115,7 +153,7 @@ python scripts/verify_v2_identity.py --output /tmp/v2_identity.json
 The recorded run contains **544 synthetic piecewise-linear spectra** on 1, 5,
 10 nm and irregular grids. Brent evaluates the original two integrals using
 adaptive quadrature; a separate trapezoidal calculation evaluates the area.
-Maximum absolute difference: **2.274 × 10⁻¹³ nm**. The **28 passing tests** include
+Maximum absolute difference: **2.274 × 10⁻¹³ nm**. The **original 28-test audit** includes
 the unchanged historical threshold test plus analytic oracles, invalid inputs,
 endpoint roots, a discontinuous function, and counterexamples. These are
 numerical checks supporting the proof, not laboratory validation or independent
