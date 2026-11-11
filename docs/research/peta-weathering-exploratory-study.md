@@ -36,16 +36,27 @@ Dry-weathered minus pristine, computed from equally weighted group-mean spectra:
 
 The weathered PETa mean has higher reflectance at each of the 351 wavelengths examined, with a nonuniform wavelength-dependent increase (difference **0.0484614–0.1267020 reflectance units**). λ*V2 captures the integrated rise; λ*EE captures a smaller centroid shift toward shorter wavelengths; Δλ* summarizes their signed difference. This is descriptive evidence, not an independent weathering-detection validation.
 
-## Exploratory comparison with classical analysis
+## Exploratory classification — methodological correction pending rerun
 
-Identical leave-one-group-out nearest-centroid evaluation on the corrected 25 groups:
+**Correction dated 11 November 2026:** The earlier comparison treated the derived quantity Δλ* = λ*V2 − λ*EE as a third feature in a nearest-centroid classifier. This was a modeling choice, **not an intrinsic requirement of ARBE**, and must not be interpreted as evidence that Δλ* destroys information or reduces the quality of the underlying descriptors.
 
-| Method | Correct classifications |
-| --- | ---: |
-| Classical normalized full spectral shape | **24 / 25 (96%)** |
-| ARBE λ*V2 + λ*EE + Δλ* | **20 / 25 (80%)** |
+Previously recorded exploratory results, retained solely for audit history:
 
-These are small, within-dataset exploratory results, **not** externally validated predictive accuracies. The full spectrum has much greater information capacity; group independence, model selection and prospective blinding are unresolved. **No ARBE classification advantage was observed.**
+| Earlier setup | Recorded correct classifications | Interpretation |
+| --- | ---: | --- |
+| Classical normalized full spectral shape | **24 / 25 (96%)** | Different, higher-dimensional input; not a like-for-like two-descriptor comparison |
+| λ*V2 + λ*EE + Δλ* as three classifier features | **20 / 25 (80%)** | Redundant third feature changes feature-space weighting; not a fair independent-feature comparison |
+
+**These figures have not been recomputed in the corrected design and are not a valid head-to-head assessment of classical two-descriptor analysis versus ARBE.** They are exploratory, within-dataset figures, not externally validated predictive accuracies.
+
+### Corrected comparison protocol (results pending)
+
+1. **A — Classical two-descriptor baseline:** mean reflectance and reflectance-weighted spectral centroid.
+2. **B — ARBE two-descriptor representation:** λ*V2 and λ*EE. Because λ*V2 is an affine transformation of mean reflectance and λ*EE is the same centroid, A and B must yield identical predictions **when corresponding features are standardized identically and the same classifier, folds, and numerical conventions are used**. Without scale-invariant preprocessing, Euclidean distances need not match.
+3. **C — Classical full-spectrum baseline:** normalized spectral shape, explicitly labeled a higher-dimensional information-rich comparison, not a like-for-like descriptor test.
+4. **Δλ*:** report as a derived signed interpretation/diagnostic quantity, **not** as a third independent classifier input. Any separate experiment adding Δλ* must be labeled a feature-weighting experiment, not a new-information test.
+
+Recompute A/B/C from the same 25 groups, report group-level predictions and confusion matrices, document standardization fitted within each training fold, and audit independence and labels. **No corrected classification results are claimed in this draft.**
 
 ## Simulated measurement noise
 
@@ -53,11 +64,11 @@ For each reflectance-noise SD **0.002, 0.010, 0.030**, 3,000 Monte Carlo perturb
 
 ## Independent arithmetic check
 
-An independent endpoint-half-weighted integration over the 351-point 1-nm grid reproduced stored λ*V2 and λ*EE values for all 25 corrected groups within **1e−8 nm**. The PETa change estimates above were reproduced. Stored classification totals were checked, but the classification algorithm and Monte Carlo simulations were **not** independently rerun. This is an arithmetic check, not an independent experimental replication.
+An independent endpoint-half-weighted integration over the 351-point 1-nm grid reproduced stored λ*V2 and λ*EE values for all 25 corrected groups within **1e−8 nm**. The PETa change estimates above were reproduced. Stored totals for the earlier, methodologically confounded classification setups were checked, but the corrected A/B/C classification protocol and Monte Carlo simulations were **not** independently rerun. This is an arithmetic check, not an independent experimental replication.
 
 ## Interpretation and limitations
 
-ARBE's possible value is a standardized, compact, signed description of average reflectance and centroid displacement. Compare its interpretability with classical mean reflectance and centroid side by side. Δλ* can emphasize opposing changes or conceal compensating ones. The current data do not establish chemical mechanisms, measurement superiority, industrial diagnostic utility or generalization.
+ARBE's possible value is a standardized, compact, signed description of average reflectance and centroid displacement. The derived Δλ* must not be treated as a third independent source of spectral information in a classifier. Compare its interpretability with classical mean reflectance and centroid side by side. Δλ* can emphasize opposing changes or conceal compensating ones. The current data do not establish chemical mechanisms, measurement superiority, industrial diagnostic utility or generalization.
 
 Next requirements: specimen identifiers and treatment audit; independent repeated laboratory measurements and instrument geometry; correlated-noise models; uncertainty across independent specimens; preregistered validation across additional polymers and degradation mechanisms.
 
@@ -66,7 +77,7 @@ Next requirements: specimen identifiers and treatment audit; independent repeate
 - [ ] Confirm exact updated dataset citation, version and redistribution rights.
 - [ ] Audit specimen independence and treatment labels against original source.
 - [ ] Add clean-environment code, dependency versions and checksums.
-- [ ] Independently rerun classification and Monte Carlo tests.
+- [ ] Recompute the corrected A/B/C classification protocol with per-fold standardization, group-level predictions and confusion matrices; independently rerun Monte Carlo tests.
 - [ ] Publish dataset-derived plots or raw spectral rows **only after licensing clearance**.
 - [ ] Retain explicit distinctions between arithmetic checks, simulated uncertainty and independent validation.
 
