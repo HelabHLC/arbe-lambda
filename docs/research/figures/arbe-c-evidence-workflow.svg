@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 350" role="img" aria-label="ARBE-C diagnostic evidence workflow with measurement, anomaly detection, reproducibility and independent confirmation">
+<rect width="1000" height="350" rx="22" fill="#f3f8fd"/><text x="36" y="53" font-family="Arial" font-size="29" font-weight="bold" fill="#12345a">ARBE-C | Measurement is not confirmation</text>
+<text x="37" y="88" font-family="Arial" font-size="18" fill="#35536d">Evidence stages for an experimental diagnostic workflow</text>
+<g font-family="Arial" text-anchor="middle">
+<rect x="36" y="122" width="212" height="155" rx="16" fill="#d8eefb" stroke="#5f9fc7"/><text x="142" y="168" font-size="23" font-weight="bold" fill="#143d60">1. Measure</text><text x="142" y="205" font-size="16" fill="#143d60">Reflectance before</text><text x="142" y="230" font-size="16" fill="#143d60">and after</text>
+<rect x="276" y="122" width="212" height="155" rx="16" fill="#e3edfa" stroke="#7699d1"/><text x="382" y="168" font-size="23" font-weight="bold" fill="#143d60">2. Detect</text><text x="382" y="205" font-size="16" fill="#143d60">C-curve, K,</text><text x="382" y="230" font-size="16" fill="#143d60">candidate positions</text>
+<rect x="516" y="122" width="212" height="155" rx="16" fill="#fff1d9" stroke="#d7a54d"/><text x="622" y="168" font-size="23" font-weight="bold" fill="#69440c">3. Repeat</text><text x="622" y="205" font-size="16" fill="#69440c">Reproducibility</text><text x="622" y="230" font-size="16" fill="#69440c">with controls</text>
+<rect x="756" y="122" width="212" height="155" rx="16" fill="#dff2e8" stroke="#65a882"/><text x="862" y="168" font-size="23" font-weight="bold" fill="#17583d">4. Confirm</text><text x="862" y="205" font-size="16" fill="#17583d">Independent</text><text x="862" y="230" font-size="16" fill="#17583d">material evidence</text>
+</g><g fill="#3c678b"><path d="M253 192 l17 -10 v20z"/><path d="M493 192 l17 -10 v20z"/><path d="M733 192 l17 -10 v20z"/></g>
+<text x="36" y="320" font-family="Arial" font-size="18" fill="#29475d">A computed anomaly alone does not establish a specific physical or chemical cause.</text></svg>
