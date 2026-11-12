@@ -2,9 +2,9 @@
 
 *Understanding local spectral changes, cumulative differences, and spectral balance*
 
-> **Research status (12 November 2026):** ARBE-C is an **experimental, independently unvalidated diagnostic prototype**. The illustrations below are **schematic**; they are not measured PET results, and they do not establish diagnostic superiority.
+> **Research status (12 November 2026):** ARBE-C is an **experimental, independently unvalidated diagnostic prototype**. The numerical illustrations below use **synthetic spectra calculated from a defined difference function**; they are not measured PET results, and they do not establish diagnostic superiority.
 
-![Schematic: local difference peak versus C-curve K extremum](figures/arbe-c-local-vs-cumulative.svg)
+![Calculated synthetic example: local difference peak versus C-curve K extremum](figures/arbe-c-local-vs-cumulative.svg)
 
 ## 🔍 Three different questions
 
@@ -34,7 +34,7 @@ When reflectance is represented as a dimensionless fraction, K is measured in **
 
 For sufficiently smooth spectra, \(C'(x)=d(x)-\overline d\). An interior extremum of C therefore occurs where the local difference crosses its mean, not necessarily at a peak of \(d\). The wavelength of the K extremum **does not by itself identify the center of a chemical or physical material change**.
 
-The figure above is schematic. Any plotted wavelengths or curves are illustrative, **not independent measurements**.
+The figure above is a numerically calculated **synthetic example**, not independent measurements. The C-curve is integrated from exactly the displayed difference function at 1 nm intervals.
 
 ## 🌈 How ARBE λ* fits in
 
@@ -59,19 +59,23 @@ If \(R_{\mathrm{after}}(\lambda)=R_{\mathrm{before}}(\lambda)+a\) with a constan
 
 That **does not prove no material change occurred**: K deliberately ignores uniform additive shifts. By contrast, λ*_V2 changes with mean reflectance under such an offset, while the response of λ*_EE depends on the original spectrum and normalization. For a *multiplicative* scaling of reflectance, the normalized centroid stays fixed; additive and multiplicative changes must not be conflated.
 
+## ⚖️ Comparing ARBE-C with RMS and total variation
+
+![Calculated comparison of RMS, total variation and ARBE-C K on the same synthetic spectral difference](figures/arbe-c-rms-total-variation-comparison.svg)
+
+The figure applies three distinct summaries to **the same synthetic difference spectrum** \(d(\lambda)\), sampled from 380 to 730 nm in 1 nm steps:
+
+- **RMS** quantifies overall difference magnitude: \(\sqrt{\int d(\lambda)^2\,d\lambda / (350\,\mathrm{nm})}\).
+- **Total variation (TV)** quantifies accumulated absolute variation along wavelength: \(\int |d'(\lambda)|\,d\lambda\), approximated by the sum of adjacent absolute differences.
+- **ARBE-C K** quantifies the largest absolute excursion of the **mean-centered cumulative difference**, while the full C-curve retains its wavelength-dependent shape.
+
+For this specific synthetic function, numerical results are RMS **0.010412** (reflectance fraction), TV **0.111945** (reflectance fraction), and K **0.961079 nm**. **Their units and interpretations differ; comparing the numerical magnitudes as if they were competing scores would be invalid.** The same source function is used in both figures, and the integral C-curve returns to approximately zero at 730 nm by construction.
+
+The figure is **not a benchmark**: one deliberately constructed curve cannot establish additional detection power, reliability or practical diagnostic benefit. Those claims require prespecified independent test data, relevant endpoints, noise/resolution robustness checks and fair baselines.
+
 ## ✅ Detection is not confirmation
 
-![Evidence workflow: measurement, detection, reproducibility, independent confirmation](figures/arbe-c-evidence-workflow.svg)
-
-The proposed interface makes the status of every spectral finding explicit:
-
-- **Measured:** An observed spectrum or measured difference.
-- **Detected:** An algorithmic candidate wavelength region.
-- **Reproducible:** The signal persists under prespecified repeat measurements and suitable controls.
-- **Independently confirmed:** A particular material cause is supported by independent experimental or material evidence.
-- **Not confirmed:** The evidence does not satisfy the prespecified criteria; this is not automatically a disproof.
-
-**Neither K nor the C-curve shape alone can confirm a material change.** Even reproducing a peak with another algorithm on the same spectrum is only a computational cross-check, not independent physical validation.
+A measured spectral difference is not, by itself, proof of a specific material cause. Repeated measurements, appropriate controls, and independent physical or chemical evidence remain necessary. **Neither K nor the C-curve shape alone confirms material degradation.**
 
 ## ⚖️ What remains unproven
 
