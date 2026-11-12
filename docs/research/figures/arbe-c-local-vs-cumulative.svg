@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" role="img" aria-label="Illustrative comparison of a local difference peak and a later cumulative C-curve extremum">
+<rect width="1000" height="420" rx="22" fill="#0b1931"/><text x="38" y="53" font-family="Arial,sans-serif" font-size="29" font-weight="bold" fill="#fff">ARBE-C | A local peak is not K</text>
+<text x="40" y="88" font-family="Arial,sans-serif" font-size="17" fill="#a6c6dc">Schematic example — not experimental measurements</text>
+<rect x="35" y="115" width="445" height="257" rx="14" fill="#132c4a"/><rect x="520" y="115" width="445" height="257" rx="14" fill="#132c4a"/>
+<text x="57" y="148" font-family="Arial" font-size="20" fill="#fff">Local difference d(λ)</text><text x="543" y="148" font-family="Arial" font-size="20" fill="#fff">Centered cumulative difference C(λ)</text>
+<path d="M70 315 H447 M70 185 V315 M555 315 H932 M555 185 V315" stroke="#7b9ab4" stroke-width="2" fill="none"/>
+<path d="M70 285 C105 280 120 198 153 203 S210 280 250 282 S320 286 370 287 S420 286 447 286" fill="none" stroke="#42c6f5" stroke-width="5"/>
+<path d="M555 315 C595 240 625 215 660 245 S725 292 775 272 S855 195 883 207 S916 278 932 315" fill="none" stroke="#f4a23b" stroke-width="5"/>
+<circle cx="153" cy="203" r="7" fill="#42c6f5"/><circle cx="883" cy="207" r="8" fill="#f85bd7"/>
+<path d="M153 205 V315 M883 207 V315" stroke-dasharray="7 6" stroke="#e1e9f2" opacity=".7"/>
+<text x="103" y="338" font-family="Arial" font-size="17" fill="#c6e5f3">Local peak</text><text x="829" y="338" font-family="Arial" font-size="17" fill="#f8b7e9">K extremum</text>
+<text x="40" y="401" font-family="Arial" font-size="16" fill="#e2eaf3">K = max |C(λ)|. The K wavelength is not automatically the location of a physical cause.</text></svg>
