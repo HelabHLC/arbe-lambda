@@ -2,7 +2,7 @@
 
 *Understanding local spectral changes, cumulative differences, and spectral balance*
 
-> **Research status (12 November 2026):** ARBE-C is an **experimental, independently unvalidated diagnostic prototype**. The numerical illustrations below use **synthetic spectra calculated from a defined difference function**; they are not measured PET results, and they do not establish diagnostic superiority.
+> **Research status (12 November 2026):** ARBE-C is an **experimental, independently unvalidated diagnostic prototype**. The first two numerical illustrations use **synthetic spectra calculated from a defined difference function**. A separate third figure displays **real PET reflectance measurements** from two measurement blocks, without a verified before/after ageing pairing. Neither type of illustration establishes diagnostic superiority.
 
 ![Calculated synthetic example: local difference peak versus C-curve K extremum](figures/arbe-c-local-vs-cumulative.svg)
 
@@ -72,6 +72,24 @@ The figure applies three distinct summaries to **the same synthetic difference s
 For this specific synthetic function, numerical results are RMS **0.010412** (reflectance fraction), TV **0.111945** (reflectance fraction), and K **0.961079 nm**. **Their units and interpretations differ; comparing the numerical magnitudes as if they were competing scores would be invalid.** The same source function is used in both figures, and the integral C-curve returns to approximately zero at 730 nm by construction.
 
 The figure is **not a benchmark**: one deliberately constructed curve cannot establish additional detection power, reliability or practical diagnostic benefit. Those claims require prespecified independent test data, relevant endpoints, noise/resolution robustness checks and fair baselines.
+
+## 🧫 Real PET measurements: a separate illustrative comparison
+
+![ATLAS Clarus three-panel evaluation of real PET reflectance measurements](https://arbe-lambda-star.com/wp-content/uploads/2026/11/ARBE-C-Clarus-%E2%80%93-real-PET-spectra-scaled.png)
+
+**Source and interpretation.** This figure uses measured PET reflectance spectra from the de-Vries dataset. It compares **two measurement blocks with five technical replicates each**. The blocks are **not established as a matched untreated-versus-aged pair**. Accordingly, the figure illustrates spectral comparison and ARBE-C computation, **not the detection of ageing or a known material change**.
+
+For this particular pair of measurement groups, the reported calculations are:
+
+| Quantity | Result |
+| --- | ---: |
+| Wavelength of the largest absolute local spectral difference | **730 nm** |
+| Wavelength of the maximum absolute centered cumulative excursion | **639 nm** |
+| ARBE-C scalar \(K\) | **0.096105 nm** |
+
+The **730 nm** result lies at the **upper boundary** of the measured wavelength interval; it should not be interpreted as an interior spectral peak or a confirmed physical damage location. The distinct **639 nm** location arises from integrating the mean-centered difference, not from a second independent measurement. The centered cumulative curve returns to approximately zero at the endpoint by construction.
+
+**Data and reproducibility limits.** This image is hosted on the ARBE website rather than committed as a binary file in this repository. The displayed values are reported for the selected comparison; this section does not yet include the complete source spectra, block identifiers, calculation script, or an independent reproduction of the numbers. Those materials are needed for a fully auditable experimental example. No claims of superiority over RMS, total variation, or established diagnostics follow from this illustration.
 
 ## ✅ Detection is not confirmation
 
