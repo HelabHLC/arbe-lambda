@@ -19,8 +19,8 @@ import pandas as pd
 from seymour_atlas_correlation import calculate
 
 ZIP_SHA256 = "49d0bc10aeb90ee4b6f30d20305dd919caa37eca94e81a80ebf8e23b36ed1bdd"
-REF_RE = re.compile(r"H\\d{3}_L\\d{3}_C\\d{3}", re.IGNORECASE)
-NUMBER_RE = re.compile(r"[-+]?(?:\\d+(?:\\.\\d*)?|\\.\\d+)(?:[eE][-+]?\\d+)?")
+REF_RE = re.compile(r"H\d{3}_L\d{3}_C\d{3}", re.IGNORECASE)
+NUMBER_RE = re.compile(r"[-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][-+]?\d+)?")
 EXPECTED_N = 13283
 EXPECTED_PEARSON = 0.8572758849535563
 
@@ -109,7 +109,7 @@ def main() -> None:
     ax.set(xlabel="Mean spectral reflectance (0–1)", ylabel="ARBE Δλ* (nm)",
            title="13,283 ATLAS reference spectra — Seymour correlation test")
     ax.text(0.02, 0.98,
-            f"N = {len(result):,}\\nPearson r = {pearson:.4f}\\nR² = {pearson**2:.4f}\\nSpearman ρ = {rho:.4f}",
+            f"N = {len(result):,}\nPearson r = {pearson:.4f}\nR² = {pearson**2:.4f}\nSpearman ρ = {rho:.4f}",
             transform=ax.transAxes, va="top", ha="left")
     ax.grid(alpha=0.22)
     ax.legend(loc="lower right")
