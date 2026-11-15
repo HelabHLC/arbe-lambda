@@ -62,7 +62,7 @@ def main() -> None:
     x = result["mean_reflectance"].to_numpy()
     y = result["delta_lambda_nm"].to_numpy()
     pearson = float(np.corrcoef(x, y)[0, 1])
-    spearman = float(result["mean_reflectance"].corr(result["delta_lambda_nm"], method="spearman"))
+    spearman = float(np.corrcoef(result["mean_reflectance"].rank().to_numpy(), result["delta_lambda_nm"].rank().to_numpy())[0, 1])
     slope, intercept = np.polyfit(x, y, 1)
     xline = np.linspace(x.min(), x.max(), 200)
     fig, ax = plt.subplots(figsize=(10, 7))
