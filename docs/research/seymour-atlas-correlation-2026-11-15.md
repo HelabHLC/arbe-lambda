@@ -69,3 +69,9 @@ The regeneration script may produce a different bytewise checksum because of CSV
 The scatterplot probes a **cross-sectional** statistical dependence among reference colors. The ARBE longitudinal hypothesis asks whether the signed temporal evolution of a wavelength-scaled mean-reflectance descriptor relative to a reflectance-weighted centroid provides an interpretable or decision-relevant signal. This second question has **not** been answered by the correlation test.
 
 Earlier work proposing an equivalent mathematical descriptor would be highly relevant. An exhaustive novelty search has not yet been completed.
+
+## Public visualization (all 13,283 references)
+
+![Binned density plot: 13,283 ATLAS references and the Pearson/Spearman correlation results](seymour-atlas-density-13283.svg)
+
+[Open the SVG density plot](seymour-atlas-density-13283.svg). It aggregates the **entire** 13,283-reference dataset into 160 × 120 bins (4,498 nonempty cells, summed density counts = 13,283). This is a binned view and **not** the original point-by-point PNG. The source CSV and the original PNG remain separate local artifacts until committed explicitly.
