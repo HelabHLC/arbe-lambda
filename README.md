@@ -178,3 +178,13 @@ When citing this clarification, additionally cite its Git commit; it does not
 alter the archived DOI or existing release tags.
 
 Code: MIT. Specification text: CC-BY 4.0. Source-data rights remain separate.
+
+
+### ATLAS Seymour correlation test (15 November 2026)
+
+A transparent cross-sectional test of **13,283 ATLAS HLC reference spectra** reports **Pearson r = +0.8573** and **R² = 0.7349** for ARBE Δλ* versus mean reflectance. This does not establish longitudinal diagnostic benefit.
+
+- [Methods, statistics, limitations and input provenance](docs/research/seymour-atlas-correlation-2026-11-15.md)
+- [Reproducible CSV and scatterplot generator](tools/seymour_atlas_correlation.py)
+
+**Data availability:** The input master and the generated full CSV/PNG are not committed in this repository at present; the script regenerates both outputs from an authorized trusted master.
