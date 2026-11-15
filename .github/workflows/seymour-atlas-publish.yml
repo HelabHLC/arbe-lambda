@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - ".github/workflows/seymour-atlas-publish.yml"
+      - "tools/seymour_atlas_from_freiefarbe.py"
 
 permissions:
   contents: write
