@@ -88,7 +88,7 @@ def main() -> None:
     x = result["mean_reflectance"].to_numpy()
     y = result["delta_lambda_nm"].to_numpy()
     pearson = float(np.corrcoef(x, y)[0, 1])
-    rho = float(result["mean_reflectance"].corr(result["delta_lambda_nm"], method="spearman"))
+    rho = float(np.corrcoef(result["mean_reflectance"].rank().to_numpy(), result["delta_lambda_nm"].rank().to_numpy())[0, 1])
     if not np.isclose(pearson, EXPECTED_PEARSON, atol=0.0002):
         raise ValueError(
             f"Expected Pearson r near {EXPECTED_PEARSON:.9f}; got {pearson:.9f}. "
