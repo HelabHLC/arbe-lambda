@@ -1,0 +1,49 @@
+name: Publish Seymour ATLAS correlation artifacts
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/seymour-atlas-publish.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install analysis dependencies
+        run: python -m pip install --disable-pip-version-check numpy pandas matplotlib
+      - name: Download published freieFarbe HLC XL data
+        run: |
+          curl --fail --location --retry 3 --silent --show-error \
+            'https://freiefarbe.de/wp-content/uploads/2022/12/HLC-Colour-Atlas-XL_Set_DE_v1-2.zip' \
+            --output /tmp/HLC-Colour-Atlas-XL_Set_DE_v1-2.zip
+          printf '%s  %s\n' \
+            '49d0bc10aeb90ee4b6f30d20305dd919caa37eca94e81a80ebf8e23b36ed1bdd' \
+            '/tmp/HLC-Colour-Atlas-XL_Set_DE_v1-2.zip' | sha256sum -c -
+      - name: Recompute all 13,283 reference values
+        run: |
+          python tools/seymour_atlas_from_freiefarbe.py \
+            /tmp/HLC-Colour-Atlas-XL_Set_DE_v1-2.zip \
+            --out results/seymour-atlas
+      - name: Commit verified CSV and PNG
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add results/seymour-atlas/ARBE_Seymour_ATLAS_13283_Einzelwerte.csv \
+                  results/seymour-atlas/ARBE_Seymour_ATLAS_13283_Streudiagramm.png
+          if git diff --cached --quiet; then
+            echo 'No changes to commit'
+          else
+            git commit -m 'Publish verified Seymour all-reference CSV and plot'
+            git push
+          fi
