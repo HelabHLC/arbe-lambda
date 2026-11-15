@@ -186,5 +186,6 @@ A transparent cross-sectional test of **13,283 ATLAS HLC reference spectra** rep
 
 - [Methods, statistics, limitations and input provenance](docs/research/seymour-atlas-correlation-2026-11-15.md)
 - [Reproducible CSV and scatterplot generator](tools/seymour_atlas_correlation.py)
+- [Density visualization from all 13,283 references](docs/research/seymour-atlas-density-13283.svg)
 
 **Data availability:** The input master and the generated full CSV/PNG are not committed in this repository at present; the script regenerates both outputs from an authorized trusted master.
